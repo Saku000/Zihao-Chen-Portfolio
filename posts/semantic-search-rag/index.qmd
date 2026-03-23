@@ -1,0 +1,103 @@
+---
+title: "Semantic Search & RAG System for Medical Literature"
+author: "Zihao Chen"
+date: today
+categories: [AI, NLP, RAG, Python]
+description: >
+  Built a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.
+---
+
+## The Problem
+
+Medical research papers are information-dense, terminology-heavy, and difficult to navigate with traditional keyword search alone. Users often need not just document retrieval, but grounded answers to natural-language questions based on relevant evidence.
+
+This project addressed that challenge by building a semantic search and RAG system for medical literature, designed to help users retrieve relevant papers and generate evidence-grounded answers from a corpus of more than 100 medical research papers.
+
+---
+
+## My Approach
+
+I designed and implemented an end-to-end NLP pipeline with a modular architecture:
+
+- PDF text extraction and cleaning
+- Paragraph-based chunking
+- SentenceTransformer embeddings
+- Cosine-similarity retrieval
+- Optional RAG answer generation via OpenAI
+- CLI and Streamlit interfaces
+
+The system was designed with several production-oriented decisions:
+
+- Paragraph-level chunking to preserve semantic coherence
+- Length-bounded chunks to reduce noisy or overly sparse representations
+- Doc-level deduplication to prevent one source from dominating top results
+- Keyword prefilter with fallback to improve precision in heterogeneous corpora
+- Strict prompting constraints to reduce hallucination in answer generation
+
+---
+
+## Key Results
+
+The final system enabled users to:
+
+- Perform semantic search over 100+ medical papers
+- Retrieve top-K relevant documents using dense embeddings and cosine similarity
+- Ask natural-language questions and receive grounded answers
+- Interact through both a command-line interface and a Streamlit web app
+
+Manual retrieval evaluation across domain-specific queries showed that:
+
+- Top-K results aligned well with domain concepts
+- Doc-level deduplication improved evidence diversity
+- Keyword prefilter improved precision for heterogeneous biomedical topics
+
+---
+
+## Reflections
+
+### What I Learned
+
+This project strengthened my ability to:
+
+- Build an end-to-end NLP system from raw documents to LLM output
+- Apply embeddings for real-world information retrieval
+- Design RAG pipelines with hallucination control
+- Think beyond assignment requirements toward production-ready architecture
+
+It also deepened my understanding of the trade-offs between retrieval quality, chunk granularity, system modularity, and answer grounding.
+
+### Limitations
+
+- No OCR support for scanned PDFs
+- Biomedical-specific embedding models could further improve domain alignment
+- Cross-encoder reranking could improve retrieval precision
+- Citation granularity could be improved to link answers to exact PDF page locations
+
+### Next Steps
+
+If I continue this project, I would focus on:
+
+- Adding PDF page-level citation linking
+- Testing biomedical-specific embedding models such as PubMedBERT
+- Adding cross-encoder reranking for more precise retrieval
+- Expanding evaluation with a more formal benchmark framework
+
+---
+
+## Tech Stack
+
+- Python
+- Sentence Transformers
+- NumPy
+- OpenAI API
+- Streamlit
+- PyMuPDF
+- python-dotenv
+
+---
+
+## Why This Project Matters
+
+This project reflects my interest in building AI systems that are both technically robust and practically useful. Rather than treating LLMs as black-box generators, I focused on grounding, retrieval quality, modular system design, and interface usability.
+
+It demonstrates how NLP and generative AI can be applied to real-world knowledge retrieval problems where trust, evidence, and system reliability matter.

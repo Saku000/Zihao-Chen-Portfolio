@@ -1,0 +1,98 @@
+---
+title: "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer"
+author: "Zihao Chen"
+date: today
+categories: [AI, NLP, RAG, python]
+description: >
+  Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.
+---
+
+## The Problem
+
+Insurance policy documents are often long, complex, and difficult to interpret. Users struggle to quickly understand coverage details, identify exclusions, or compare multiple policies. Traditional keyword search is insufficient for navigating unstructured legal text, and manual comparison is time-consuming and error-prone.
+
+This creates a need for an intelligent system that can:
+- Understand policy documents semantically  
+- Answer user questions accurately  
+- Compare multiple policies in a structured way  
+
+---
+
+## My Approach
+
+To address this problem, I built an end-to-end AI system based on a Retrieval-Augmented Generation (RAG) pipeline.
+
+### Document Processing
+- Parsed uploaded insurance documents (PDF/text)
+- Split documents into structured chunks
+- Cleaned and standardized text for downstream processing  
+
+### Semantic Retrieval
+- Generated embeddings for each chunk  
+- Implemented similarity-based retrieval to identify relevant content  
+- Enabled context-aware search beyond keyword matching  
+
+### RAG Question Answering
+- Retrieved top relevant chunks  
+- Constructed grounded prompts for LLM  
+- Generated answers strictly based on source content to reduce hallucination  
+
+### Policy Comparison System
+- Designed a multi-document comparison module  
+- Enabled side-by-side analysis of Policy A vs Policy B  
+- Highlighted differences in coverage, exclusions, and conditions  
+
+### User Interface
+- Built an interactive Streamlit app  
+- Supported multi-file upload  
+- Enabled real-time question answering and comparison  
+
+---
+
+## Key Results
+
+- Successfully built a working end-to-end AI system integrating document parsing, retrieval, and LLM generation  
+- Improved information retrieval accuracy compared to keyword-based approaches  
+- Enabled structured comparison of complex policy documents  
+- Delivered an interactive user experience for real-time document analysis  
+
+---
+
+## Reflections
+
+### What I Learned
+- RAG pipelines are highly effective for grounding LLM responses in real data  
+- Embedding-based retrieval significantly improves understanding of unstructured text  
+- Designing reliable AI systems requires controlling hallucination and enforcing structure  
+
+### Limitations
+- Performance depends on document quality and formatting  
+- Long documents may require more advanced chunking strategies  
+- No domain-specific fine-tuning (e.g., insurance-specific models)  
+
+### Next Steps
+- Add citation highlighting (show exact source location)  
+- Improve comparison visualization (UI enhancement)  
+- Explore domain-specific embeddings for higher accuracy  
+
+---
+
+## Tech Stack
+
+- Python  
+- Streamlit  
+- LLM (Gemini / OpenAI)  
+- Embeddings (Sentence Transformers / API-based)  
+- RAG Pipeline Design  
+
+---
+
+## Why This Project Matters
+
+This project demonstrates my ability to:
+- Build end-to-end AI systems from unstructured data  
+- Apply NLP and LLM techniques to real-world problems  
+- Translate technical solutions into practical business applications  
+- Design user-facing tools that support decision-making  
+
+It reflects my interest in using data and AI to solve complex business problems, particularly in areas involving document analysis, decision support, and automation.

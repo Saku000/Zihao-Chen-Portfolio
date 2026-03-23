@@ -1,15 +1,19 @@
 ---
-title: "About Me"
-image: profile.jpg
+title: "Zihao Chen"
+image: Zihao Chen 1.jpeg
 about:
   template: jolla
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/zihaochen-2243b3375/
     - icon: github
       text: GitHub
-      href: https://github.com
+      href: https://github.com/Saku000
 ---
 
-Replace this text with a short bio about yourself. What are you studying? What are you interested in? What do you want to work on?
+I am a Master of Science in Business Analytics (MSBA) student at the University of California, Irvine, with a strong focus on data-driven decision making and applied machine learning.
+
+I have experience building end-to-end analytics and AI systems, including a semantic search and RAG pipeline for medical literature and predictive models for e-commerce user behavior. My work emphasizes translating data into actionable business insights, from improving customer targeting to optimizing operational decisions.
+
+I am particularly interested in roles such as Business Analyst, Data Analyst, Consultant, and Operations or Inventory Analyst, where I can leverage data to support strategic decision-making and drive measurable business impact.
