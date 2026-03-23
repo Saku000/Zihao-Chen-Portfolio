@@ -7,60 +7,60 @@
     "text": "I am a Master of Science in Business Analytics (MSBA) student at the University of California, Irvine, with a strong focus on data-driven decision making and applied machine learning.\nI have experience building end-to-end analytics and AI systems, including a semantic search and RAG pipeline for medical literature and predictive models for e-commerce user behavior. My work emphasizes translating data into actionable business insights, from improving customer targeting to optimizing operational decisions.\nI am particularly interested in roles such as Business Analyst, Data Analyst, Consultant, and Operations or Inventory Analyst, where I can leverage data to support strategic decision-making and drive measurable business impact."
   },
   {
-    "objectID": "posts/my-first-project/index.html",
-    "href": "posts/my-first-project/index.html",
+    "objectID": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html",
+    "href": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html",
     "title": "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer",
     "section": "",
     "text": "Insurance policy documents are often long, complex, and difficult to interpret. Users struggle to quickly understand coverage details, identify exclusions, or compare multiple policies. Traditional keyword search is insufficient for navigating unstructured legal text, and manual comparison is time-consuming and error-prone.\nThis creates a need for an intelligent system that can: - Understand policy documents semantically\n- Answer user questions accurately\n- Compare multiple policies in a structured way"
   },
   {
-    "objectID": "posts/my-first-project/index.html#the-problem",
-    "href": "posts/my-first-project/index.html#the-problem",
+    "objectID": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#the-problem",
+    "href": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#the-problem",
     "title": "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer",
     "section": "",
     "text": "Insurance policy documents are often long, complex, and difficult to interpret. Users struggle to quickly understand coverage details, identify exclusions, or compare multiple policies. Traditional keyword search is insufficient for navigating unstructured legal text, and manual comparison is time-consuming and error-prone.\nThis creates a need for an intelligent system that can: - Understand policy documents semantically\n- Answer user questions accurately\n- Compare multiple policies in a structured way"
   },
   {
-    "objectID": "posts/my-first-project/index.html#my-approach",
-    "href": "posts/my-first-project/index.html#my-approach",
+    "objectID": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#my-approach",
+    "href": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#my-approach",
     "title": "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer",
-    "section": "⚙️ My Approach",
-    "text": "⚙️ My Approach\nTo address this problem, I built an end-to-end AI system based on a Retrieval-Augmented Generation (RAG) pipeline.\n\n🔍 Document Processing\n\nParsed uploaded insurance documents (PDF/text)\nSplit documents into structured chunks\nCleaned and standardized text for downstream processing\n\n\n\n🧠 Semantic Retrieval\n\nGenerated embeddings for each chunk\n\nImplemented similarity-based retrieval to identify relevant content\n\nEnabled context-aware search beyond keyword matching\n\n\n\n🤖 RAG Question Answering\n\nRetrieved top relevant chunks\n\nConstructed grounded prompts for LLM\n\nGenerated answers strictly based on source content to reduce hallucination\n\n\n\n⚖️ Policy Comparison System\n\nDesigned a multi-document comparison module\n\nEnabled side-by-side analysis of Policy A vs Policy B\n\nHighlighted differences in coverage, exclusions, and conditions\n\n\n\n💻 User Interface\n\nBuilt an interactive Streamlit app\n\nSupported multi-file upload\n\nEnabled real-time question answering and comparison"
+    "section": "My Approach",
+    "text": "My Approach\nTo address this problem, I built an end-to-end AI system based on a Retrieval-Augmented Generation (RAG) pipeline.\n\nDocument Processing\n\nParsed uploaded insurance documents (PDF/text)\nSplit documents into structured chunks\nCleaned and standardized text for downstream processing\n\n\n\nSemantic Retrieval\n\nGenerated embeddings for each chunk\n\nImplemented similarity-based retrieval to identify relevant content\n\nEnabled context-aware search beyond keyword matching\n\n\n\nRAG Question Answering\n\nRetrieved top relevant chunks\n\nConstructed grounded prompts for LLM\n\nGenerated answers strictly based on source content to reduce hallucination\n\n\n\nPolicy Comparison System\n\nDesigned a multi-document comparison module\n\nEnabled side-by-side analysis of Policy A vs Policy B\n\nHighlighted differences in coverage, exclusions, and conditions\n\n\n\nUser Interface\n\nBuilt an interactive Streamlit app\n\nSupported multi-file upload\n\nEnabled real-time question answering and comparison"
   },
   {
-    "objectID": "posts/my-first-project/index.html#key-results",
-    "href": "posts/my-first-project/index.html#key-results",
+    "objectID": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#key-results",
+    "href": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#key-results",
     "title": "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer",
-    "section": "📊 Key Results",
-    "text": "📊 Key Results\n\nSuccessfully built a working end-to-end AI system integrating document parsing, retrieval, and LLM generation\n\nImproved information retrieval accuracy compared to keyword-based approaches\n\nEnabled structured comparison of complex policy documents\n\nDelivered an interactive user experience for real-time document analysis"
+    "section": "Key Results",
+    "text": "Key Results\n\nSuccessfully built a working end-to-end AI system integrating document parsing, retrieval, and LLM generation\n\nImproved information retrieval accuracy compared to keyword-based approaches\n\nEnabled structured comparison of complex policy documents\n\nDelivered an interactive user experience for real-time document analysis"
   },
   {
-    "objectID": "posts/my-first-project/index.html#reflections",
-    "href": "posts/my-first-project/index.html#reflections",
+    "objectID": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#reflections",
+    "href": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#reflections",
     "title": "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer",
-    "section": "💡 Reflections",
-    "text": "💡 Reflections\n\nWhat I Learned\n\nRAG pipelines are highly effective for grounding LLM responses in real data\n\nEmbedding-based retrieval significantly improves understanding of unstructured text\n\nDesigning reliable AI systems requires controlling hallucination and enforcing structure\n\n\n\nLimitations\n\nPerformance depends on document quality and formatting\n\nLong documents may require more advanced chunking strategies\n\nNo domain-specific fine-tuning (e.g., insurance-specific models)\n\n\n\nNext Steps\n\nAdd citation highlighting (show exact source location)\n\nImprove comparison visualization (UI enhancement)\n\nExplore domain-specific embeddings for higher accuracy"
+    "section": "Reflections",
+    "text": "Reflections\n\nWhat I Learned\n\nRAG pipelines are highly effective for grounding LLM responses in real data\n\nEmbedding-based retrieval significantly improves understanding of unstructured text\n\nDesigning reliable AI systems requires controlling hallucination and enforcing structure\n\n\n\nLimitations\n\nPerformance depends on document quality and formatting\n\nLong documents may require more advanced chunking strategies\n\nNo domain-specific fine-tuning (e.g., insurance-specific models)\n\n\n\nNext Steps\n\nAdd citation highlighting (show exact source location)\n\nImprove comparison visualization (UI enhancement)\n\nExplore domain-specific embeddings for higher accuracy"
   },
   {
-    "objectID": "posts/my-first-project/index.html#tech-stack",
-    "href": "posts/my-first-project/index.html#tech-stack",
+    "objectID": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#tech-stack",
+    "href": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#tech-stack",
     "title": "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer",
-    "section": "🛠 Tech Stack",
-    "text": "🛠 Tech Stack\n\nPython\n\nStreamlit\n\nLLM (Gemini / OpenAI)\n\nEmbeddings (Sentence Transformers / API-based)\n\nRAG Pipeline Design"
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nPython\n\nStreamlit\n\nLLM (Gemini / OpenAI)\n\nEmbeddings (Sentence Transformers / API-based)\n\nRAG Pipeline Design"
   },
   {
-    "objectID": "posts/my-first-project/index.html#why-this-project-matters",
-    "href": "posts/my-first-project/index.html#why-this-project-matters",
+    "objectID": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#why-this-project-matters",
+    "href": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#why-this-project-matters",
     "title": "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer",
-    "section": "🚀 Why This Project Matters",
-    "text": "🚀 Why This Project Matters\nThis project demonstrates my ability to: - Build end-to-end AI systems from unstructured data\n- Apply NLP and LLM techniques to real-world problems\n- Translate technical solutions into practical business applications\n- Design user-facing tools that support decision-making\nIt reflects my interest in using data and AI to solve complex business problems, particularly in areas involving document analysis, decision support, and automation."
+    "section": "Why This Project Matters",
+    "text": "Why This Project Matters\nThis project demonstrates my ability to: - Build end-to-end AI systems from unstructured data\n- Apply NLP and LLM techniques to real-world problems\n- Translate technical solutions into practical business applications\n- Design user-facing tools that support decision-making\nIt reflects my interest in using data and AI to solve complex business problems, particularly in areas involving document analysis, decision support, and automation."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Hi, I’m Zihao Chen 👋",
     "section": "",
-    "text": "Data Analysis & Business Insights\nTransform raw data into strategic recommendations using Python, SQL, and visualization tools.\nMachine Learning Applications\nBuild predictive models for customer behavior, demand forecasting, and decision optimization.\nAI Systems & RAG Pipelines\nDevelop end-to-end AI systems, including semantic search and LLM-powered applications.\n\n\n\n\n\n\nBuilt an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\n\n\n\nI am actively exploring opportunities in:\n\nBusiness Analyst\nData Analyst\nConsultant\nOperations / Inventory Analyst\n\n\n\n\n\nLinkedIn\nGitHub"
+    "text": "Data Analysis & Business Insights\nTransform raw data into strategic recommendations using Python, SQL, and visualization tools.\nMachine Learning Applications\nBuild predictive models for customer behavior, demand forecasting, and decision optimization.\nAI Systems & RAG Pipelines\nDevelop end-to-end AI systems, including semantic search and LLM-powered applications.\n\n\n\n\n\n\nBuilt an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.\n\n\n\n\nI am actively exploring opportunities in:\n\nBusiness Analyst\nData Analyst\nConsultant\nOperations / Inventory Analyst\n\n\n\n\n\nLinkedIn\nGitHub"
   },
   {
     "objectID": "index.html#what-i-do",
@@ -74,7 +74,7 @@
     "href": "index.html#featured-projects",
     "title": "Hi, I’m Zihao Chen 👋",
     "section": "",
-    "text": "Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval."
+    "text": "Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering."
   },
   {
     "objectID": "index.html#career-interests",
@@ -89,5 +89,54 @@
     "title": "Hi, I’m Zihao Chen 👋",
     "section": "",
     "text": "LinkedIn\nGitHub"
+  },
+  {
+    "objectID": "posts/semantic-search-rag/index.html",
+    "href": "posts/semantic-search-rag/index.html",
+    "title": "Semantic Search & RAG System for Medical Literature",
+    "section": "",
+    "text": "Medical research papers are information-dense, terminology-heavy, and difficult to navigate with traditional keyword search alone. Users often need not just document retrieval, but grounded answers to natural-language questions based on relevant evidence.\nThis project addressed that challenge by building a semantic search and RAG system for medical literature, designed to help users retrieve relevant papers and generate evidence-grounded answers from a corpus of more than 100 medical research papers."
+  },
+  {
+    "objectID": "posts/semantic-search-rag/index.html#the-problem",
+    "href": "posts/semantic-search-rag/index.html#the-problem",
+    "title": "Semantic Search & RAG System for Medical Literature",
+    "section": "",
+    "text": "Medical research papers are information-dense, terminology-heavy, and difficult to navigate with traditional keyword search alone. Users often need not just document retrieval, but grounded answers to natural-language questions based on relevant evidence.\nThis project addressed that challenge by building a semantic search and RAG system for medical literature, designed to help users retrieve relevant papers and generate evidence-grounded answers from a corpus of more than 100 medical research papers."
+  },
+  {
+    "objectID": "posts/semantic-search-rag/index.html#my-approach",
+    "href": "posts/semantic-search-rag/index.html#my-approach",
+    "title": "Semantic Search & RAG System for Medical Literature",
+    "section": "My Approach",
+    "text": "My Approach\nI designed and implemented an end-to-end NLP pipeline with a modular architecture:\n\nPDF text extraction and cleaning\nParagraph-based chunking\nSentenceTransformer embeddings\nCosine-similarity retrieval\nOptional RAG answer generation via OpenAI\nCLI and Streamlit interfaces\n\nThe system was designed with several production-oriented decisions:\n\nParagraph-level chunking to preserve semantic coherence\nLength-bounded chunks to reduce noisy or overly sparse representations\nDoc-level deduplication to prevent one source from dominating top results\nKeyword prefilter with fallback to improve precision in heterogeneous corpora\nStrict prompting constraints to reduce hallucination in answer generation"
+  },
+  {
+    "objectID": "posts/semantic-search-rag/index.html#key-results",
+    "href": "posts/semantic-search-rag/index.html#key-results",
+    "title": "Semantic Search & RAG System for Medical Literature",
+    "section": "Key Results",
+    "text": "Key Results\nThe final system enabled users to:\n\nPerform semantic search over 100+ medical papers\nRetrieve top-K relevant documents using dense embeddings and cosine similarity\nAsk natural-language questions and receive grounded answers\nInteract through both a command-line interface and a Streamlit web app\n\nManual retrieval evaluation across domain-specific queries showed that:\n\nTop-K results aligned well with domain concepts\nDoc-level deduplication improved evidence diversity\nKeyword prefilter improved precision for heterogeneous biomedical topics"
+  },
+  {
+    "objectID": "posts/semantic-search-rag/index.html#reflections",
+    "href": "posts/semantic-search-rag/index.html#reflections",
+    "title": "Semantic Search & RAG System for Medical Literature",
+    "section": "Reflections",
+    "text": "Reflections\n\nWhat I Learned\nThis project strengthened my ability to:\n\nBuild an end-to-end NLP system from raw documents to LLM output\nApply embeddings for real-world information retrieval\nDesign RAG pipelines with hallucination control\nThink beyond assignment requirements toward production-ready architecture\n\nIt also deepened my understanding of the trade-offs between retrieval quality, chunk granularity, system modularity, and answer grounding.\n\n\nLimitations\n\nNo OCR support for scanned PDFs\nBiomedical-specific embedding models could further improve domain alignment\nCross-encoder reranking could improve retrieval precision\nCitation granularity could be improved to link answers to exact PDF page locations\n\n\n\nNext Steps\nIf I continue this project, I would focus on:\n\nAdding PDF page-level citation linking\nTesting biomedical-specific embedding models such as PubMedBERT\nAdding cross-encoder reranking for more precise retrieval\nExpanding evaluation with a more formal benchmark framework"
+  },
+  {
+    "objectID": "posts/semantic-search-rag/index.html#tech-stack",
+    "href": "posts/semantic-search-rag/index.html#tech-stack",
+    "title": "Semantic Search & RAG System for Medical Literature",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nPython\nSentence Transformers\nNumPy\nOpenAI API\nStreamlit\nPyMuPDF\npython-dotenv"
+  },
+  {
+    "objectID": "posts/semantic-search-rag/index.html#why-this-project-matters",
+    "href": "posts/semantic-search-rag/index.html#why-this-project-matters",
+    "title": "Semantic Search & RAG System for Medical Literature",
+    "section": "Why This Project Matters",
+    "text": "Why This Project Matters\nThis project reflects my interest in building AI systems that are both technically robust and practically useful. Rather than treating LLMs as black-box generators, I focused on grounding, retrieval quality, modular system design, and interface usability.\nIt demonstrates how NLP and generative AI can be applied to real-world knowledge retrieval problems where trust, evidence, and system reliability matter."
   }
 ]

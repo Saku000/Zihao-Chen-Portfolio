@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Zihao Chen">
+<meta name="dcterms.date" content="2026-03-23">
+<meta name="description" content="Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.">
 
-<title>Zihao Chen – My Portfolio</title>
+<title>Gemini PolicyPal — AI-Powered Insurance Policy Analyzer – My Portfolio</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,22 +29,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dea667461a5c81afc9ba75ce94cd63f3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dea667461a5c81afc9ba75ce94cd63f3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,17 +75,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">My Portfolio</span>
     </a>
   </div>
@@ -92,11 +96,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">Zihao Chen</span></a>
   </li>  
 </ul>
@@ -110,39 +114,221 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#my-approach" id="toc-my-approach" class="nav-link" data-scroll-target="#my-approach">My Approach</a>
+  <ul class="collapse">
+  <li><a href="#document-processing" id="toc-document-processing" class="nav-link" data-scroll-target="#document-processing">Document Processing</a></li>
+  <li><a href="#semantic-retrieval" id="toc-semantic-retrieval" class="nav-link" data-scroll-target="#semantic-retrieval">Semantic Retrieval</a></li>
+  <li><a href="#rag-question-answering" id="toc-rag-question-answering" class="nav-link" data-scroll-target="#rag-question-answering">RAG Question Answering</a></li>
+  <li><a href="#policy-comparison-system" id="toc-policy-comparison-system" class="nav-link" data-scroll-target="#policy-comparison-system">Policy Comparison System</a></li>
+  <li><a href="#user-interface" id="toc-user-interface" class="nav-link" data-scroll-target="#user-interface">User Interface</a></li>
+  </ul></li>
+  <li><a href="#key-results" id="toc-key-results" class="nav-link" data-scroll-target="#key-results">Key Results</a></li>
+  <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections">Reflections</a>
+  <ul class="collapse">
+  <li><a href="#what-i-learned" id="toc-what-i-learned" class="nav-link" data-scroll-target="#what-i-learned">What I Learned</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul></li>
+  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
+  <li><a href="#why-this-project-matters" id="toc-why-this-project-matters" class="nav-link" data-scroll-target="#why-this-project-matters">Why This Project Matters</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="Zihao Chen 1.jpeg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Zihao Chen</h1>
-</div>
-<div class="quarto-title-meta">
+<h1 class="title">Gemini PolicyPal — AI-Powered Insurance Policy Analyzer</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">AI</div>
+    <div class="quarto-category">NLP</div>
+    <div class="quarto-category">RAG</div>
+    <div class="quarto-category">python</div>
   </div>
-</header><main class="content" id="quarto-document-content">
-<p>I am a Master of Science in Business Analytics (MSBA) student at the University of California, Irvine, with a strong focus on data-driven decision making and applied machine learning.</p>
-<p>I have experience building end-to-end analytics and AI systems, including a semantic search and RAG pipeline for medical literature and predictive models for e-commerce user behavior. My work emphasizes translating data into actionable business insights, from improving customer targeting to optimizing operational decisions.</p>
-<p>I am particularly interested in roles such as Business Analyst, Data Analyst, Consultant, and Operations or Inventory Analyst, where I can leverage data to support strategic decision-making and drive measurable business impact.</p>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.</p>
+  </div>
+</div>
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://www.linkedin.com/in/zihaochen-2243b3375/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/Saku000" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Zihao Chen </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 23, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>Insurance policy documents are often long, complex, and difficult to interpret. Users struggle to quickly understand coverage details, identify exclusions, or compare multiple policies. Traditional keyword search is insufficient for navigating unstructured legal text, and manual comparison is time-consuming and error-prone.</p>
+<p>This creates a need for an intelligent system that can: - Understand policy documents semantically<br>
+- Answer user questions accurately<br>
+- Compare multiple policies in a structured way</p>
+<hr>
+</section>
+<section id="my-approach" class="level2">
+<h2 class="anchored" data-anchor-id="my-approach">My Approach</h2>
+<p>To address this problem, I built an end-to-end AI system based on a Retrieval-Augmented Generation (RAG) pipeline.</p>
+<section id="document-processing" class="level3">
+<h3 class="anchored" data-anchor-id="document-processing">Document Processing</h3>
+<ul>
+<li>Parsed uploaded insurance documents (PDF/text)</li>
+<li>Split documents into structured chunks</li>
+<li>Cleaned and standardized text for downstream processing</li>
+</ul>
+</section>
+<section id="semantic-retrieval" class="level3">
+<h3 class="anchored" data-anchor-id="semantic-retrieval">Semantic Retrieval</h3>
+<ul>
+<li>Generated embeddings for each chunk<br>
+</li>
+<li>Implemented similarity-based retrieval to identify relevant content<br>
+</li>
+<li>Enabled context-aware search beyond keyword matching</li>
+</ul>
+</section>
+<section id="rag-question-answering" class="level3">
+<h3 class="anchored" data-anchor-id="rag-question-answering">RAG Question Answering</h3>
+<ul>
+<li>Retrieved top relevant chunks<br>
+</li>
+<li>Constructed grounded prompts for LLM<br>
+</li>
+<li>Generated answers strictly based on source content to reduce hallucination</li>
+</ul>
+</section>
+<section id="policy-comparison-system" class="level3">
+<h3 class="anchored" data-anchor-id="policy-comparison-system">Policy Comparison System</h3>
+<ul>
+<li>Designed a multi-document comparison module<br>
+</li>
+<li>Enabled side-by-side analysis of Policy A vs Policy B<br>
+</li>
+<li>Highlighted differences in coverage, exclusions, and conditions</li>
+</ul>
+</section>
+<section id="user-interface" class="level3">
+<h3 class="anchored" data-anchor-id="user-interface">User Interface</h3>
+<ul>
+<li>Built an interactive Streamlit app<br>
+</li>
+<li>Supported multi-file upload<br>
+</li>
+<li>Enabled real-time question answering and comparison</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="key-results" class="level2">
+<h2 class="anchored" data-anchor-id="key-results">Key Results</h2>
+<ul>
+<li>Successfully built a working end-to-end AI system integrating document parsing, retrieval, and LLM generation<br>
+</li>
+<li>Improved information retrieval accuracy compared to keyword-based approaches<br>
+</li>
+<li>Enabled structured comparison of complex policy documents<br>
+</li>
+<li>Delivered an interactive user experience for real-time document analysis</li>
+</ul>
+<hr>
+</section>
+<section id="reflections" class="level2">
+<h2 class="anchored" data-anchor-id="reflections">Reflections</h2>
+<section id="what-i-learned" class="level3">
+<h3 class="anchored" data-anchor-id="what-i-learned">What I Learned</h3>
+<ul>
+<li>RAG pipelines are highly effective for grounding LLM responses in real data<br>
+</li>
+<li>Embedding-based retrieval significantly improves understanding of unstructured text<br>
+</li>
+<li>Designing reliable AI systems requires controlling hallucination and enforcing structure</li>
+</ul>
+</section>
+<section id="limitations" class="level3">
+<h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
+<ul>
+<li>Performance depends on document quality and formatting<br>
+</li>
+<li>Long documents may require more advanced chunking strategies<br>
+</li>
+<li>No domain-specific fine-tuning (e.g., insurance-specific models)</li>
+</ul>
+</section>
+<section id="next-steps" class="level3">
+<h3 class="anchored" data-anchor-id="next-steps">Next Steps</h3>
+<ul>
+<li>Add citation highlighting (show exact source location)<br>
+</li>
+<li>Improve comparison visualization (UI enhancement)<br>
+</li>
+<li>Explore domain-specific embeddings for higher accuracy</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="tech-stack" class="level2">
+<h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
+<ul>
+<li>Python<br>
+</li>
+<li>Streamlit<br>
+</li>
+<li>LLM (Gemini / OpenAI)<br>
+</li>
+<li>Embeddings (Sentence Transformers / API-based)<br>
+</li>
+<li>RAG Pipeline Design</li>
+</ul>
+<hr>
+</section>
+<section id="why-this-project-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-project-matters">Why This Project Matters</h2>
+<p>This project demonstrates my ability to: - Build end-to-end AI systems from unstructured data<br>
+- Apply NLP and LLM techniques to real-world problems<br>
+- Translate technical solutions into practical business applications<br>
+- Design user-facing tools that support decision-making</p>
+<p>It reflects my interest in using data and AI to solve complex business problems, particularly in areas involving document analysis, decision support, and automation.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

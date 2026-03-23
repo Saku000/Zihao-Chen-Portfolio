@@ -8,9 +8,9 @@
 
 <meta name="author" content="Zihao Chen">
 <meta name="dcterms.date" content="2026-03-23">
-<meta name="description" content="Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.">
+<meta name="description" content="Built a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.">
 
-<title>Gemini PolicyPal — AI-Powered Insurance Policy Analyzer – My Portfolio</title>
+<title>Semantic Search &amp; RAG System for Medical Literature – My Portfolio</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d57e2c49e7361ba7858bf04b3e0690af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dea667461a5c81afc9ba75ce94cd63f3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -119,24 +119,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">🧩 The Problem</a></li>
-  <li><a href="#my-approach" id="toc-my-approach" class="nav-link" data-scroll-target="#my-approach">⚙️ My Approach</a>
-  <ul class="collapse">
-  <li><a href="#document-processing" id="toc-document-processing" class="nav-link" data-scroll-target="#document-processing">🔍 Document Processing</a></li>
-  <li><a href="#semantic-retrieval" id="toc-semantic-retrieval" class="nav-link" data-scroll-target="#semantic-retrieval">🧠 Semantic Retrieval</a></li>
-  <li><a href="#rag-question-answering" id="toc-rag-question-answering" class="nav-link" data-scroll-target="#rag-question-answering">🤖 RAG Question Answering</a></li>
-  <li><a href="#policy-comparison-system" id="toc-policy-comparison-system" class="nav-link" data-scroll-target="#policy-comparison-system">⚖️ Policy Comparison System</a></li>
-  <li><a href="#user-interface" id="toc-user-interface" class="nav-link" data-scroll-target="#user-interface">💻 User Interface</a></li>
-  </ul></li>
-  <li><a href="#key-results" id="toc-key-results" class="nav-link" data-scroll-target="#key-results">📊 Key Results</a></li>
-  <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections">💡 Reflections</a>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#my-approach" id="toc-my-approach" class="nav-link" data-scroll-target="#my-approach">My Approach</a></li>
+  <li><a href="#key-results" id="toc-key-results" class="nav-link" data-scroll-target="#key-results">Key Results</a></li>
+  <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections">Reflections</a>
   <ul class="collapse">
   <li><a href="#what-i-learned" id="toc-what-i-learned" class="nav-link" data-scroll-target="#what-i-learned">What I Learned</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul></li>
-  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">🛠 Tech Stack</a></li>
-  <li><a href="#why-this-project-matters" id="toc-why-this-project-matters" class="nav-link" data-scroll-target="#why-this-project-matters">🚀 Why This Project Matters</a></li>
+  <li><a href="#tech-stack" id="toc-tech-stack" class="nav-link" data-scroll-target="#tech-stack">Tech Stack</a></li>
+  <li><a href="#why-this-project-matters" id="toc-why-this-project-matters" class="nav-link" data-scroll-target="#why-this-project-matters">Why This Project Matters</a></li>
   </ul>
 </nav>
     </div>
@@ -145,18 +138,18 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gemini PolicyPal — AI-Powered Insurance Policy Analyzer</h1>
+<h1 class="title">Semantic Search &amp; RAG System for Medical Literature</h1>
   <div class="quarto-categories">
     <div class="quarto-category">AI</div>
     <div class="quarto-category">NLP</div>
     <div class="quarto-category">RAG</div>
-    <div class="quarto-category">python</div>
+    <div class="quarto-category">Python</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.</p>
+    <p>Built a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.</p>
   </div>
 </div>
 
@@ -186,135 +179,100 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem">🧩 The Problem</h2>
-<p>Insurance policy documents are often long, complex, and difficult to interpret. Users struggle to quickly understand coverage details, identify exclusions, or compare multiple policies. Traditional keyword search is insufficient for navigating unstructured legal text, and manual comparison is time-consuming and error-prone.</p>
-<p>This creates a need for an intelligent system that can: - Understand policy documents semantically<br>
-- Answer user questions accurately<br>
-- Compare multiple policies in a structured way</p>
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>Medical research papers are information-dense, terminology-heavy, and difficult to navigate with traditional keyword search alone. Users often need not just document retrieval, but grounded answers to natural-language questions based on relevant evidence.</p>
+<p>This project addressed that challenge by building a semantic search and RAG system for medical literature, designed to help users retrieve relevant papers and generate evidence-grounded answers from a corpus of more than 100 medical research papers.</p>
 <hr>
 </section>
 <section id="my-approach" class="level2">
-<h2 class="anchored" data-anchor-id="my-approach">⚙️ My Approach</h2>
-<p>To address this problem, I built an end-to-end AI system based on a Retrieval-Augmented Generation (RAG) pipeline.</p>
-<section id="document-processing" class="level3">
-<h3 class="anchored" data-anchor-id="document-processing">🔍 Document Processing</h3>
+<h2 class="anchored" data-anchor-id="my-approach">My Approach</h2>
+<p>I designed and implemented an end-to-end NLP pipeline with a modular architecture:</p>
 <ul>
-<li>Parsed uploaded insurance documents (PDF/text)</li>
-<li>Split documents into structured chunks</li>
-<li>Cleaned and standardized text for downstream processing</li>
+<li>PDF text extraction and cleaning</li>
+<li>Paragraph-based chunking</li>
+<li>SentenceTransformer embeddings</li>
+<li>Cosine-similarity retrieval</li>
+<li>Optional RAG answer generation via OpenAI</li>
+<li>CLI and Streamlit interfaces</li>
 </ul>
-</section>
-<section id="semantic-retrieval" class="level3">
-<h3 class="anchored" data-anchor-id="semantic-retrieval">🧠 Semantic Retrieval</h3>
+<p>The system was designed with several production-oriented decisions:</p>
 <ul>
-<li>Generated embeddings for each chunk<br>
-</li>
-<li>Implemented similarity-based retrieval to identify relevant content<br>
-</li>
-<li>Enabled context-aware search beyond keyword matching</li>
-</ul>
-</section>
-<section id="rag-question-answering" class="level3">
-<h3 class="anchored" data-anchor-id="rag-question-answering">🤖 RAG Question Answering</h3>
-<ul>
-<li>Retrieved top relevant chunks<br>
-</li>
-<li>Constructed grounded prompts for LLM<br>
-</li>
-<li>Generated answers strictly based on source content to reduce hallucination</li>
-</ul>
-</section>
-<section id="policy-comparison-system" class="level3">
-<h3 class="anchored" data-anchor-id="policy-comparison-system">⚖️ Policy Comparison System</h3>
-<ul>
-<li>Designed a multi-document comparison module<br>
-</li>
-<li>Enabled side-by-side analysis of Policy A vs Policy B<br>
-</li>
-<li>Highlighted differences in coverage, exclusions, and conditions</li>
-</ul>
-</section>
-<section id="user-interface" class="level3">
-<h3 class="anchored" data-anchor-id="user-interface">💻 User Interface</h3>
-<ul>
-<li>Built an interactive Streamlit app<br>
-</li>
-<li>Supported multi-file upload<br>
-</li>
-<li>Enabled real-time question answering and comparison</li>
+<li>Paragraph-level chunking to preserve semantic coherence</li>
+<li>Length-bounded chunks to reduce noisy or overly sparse representations</li>
+<li>Doc-level deduplication to prevent one source from dominating top results</li>
+<li>Keyword prefilter with fallback to improve precision in heterogeneous corpora</li>
+<li>Strict prompting constraints to reduce hallucination in answer generation</li>
 </ul>
 <hr>
 </section>
-</section>
 <section id="key-results" class="level2">
-<h2 class="anchored" data-anchor-id="key-results">📊 Key Results</h2>
+<h2 class="anchored" data-anchor-id="key-results">Key Results</h2>
+<p>The final system enabled users to:</p>
 <ul>
-<li>Successfully built a working end-to-end AI system integrating document parsing, retrieval, and LLM generation<br>
-</li>
-<li>Improved information retrieval accuracy compared to keyword-based approaches<br>
-</li>
-<li>Enabled structured comparison of complex policy documents<br>
-</li>
-<li>Delivered an interactive user experience for real-time document analysis</li>
+<li>Perform semantic search over 100+ medical papers</li>
+<li>Retrieve top-K relevant documents using dense embeddings and cosine similarity</li>
+<li>Ask natural-language questions and receive grounded answers</li>
+<li>Interact through both a command-line interface and a Streamlit web app</li>
+</ul>
+<p>Manual retrieval evaluation across domain-specific queries showed that:</p>
+<ul>
+<li>Top-K results aligned well with domain concepts</li>
+<li>Doc-level deduplication improved evidence diversity</li>
+<li>Keyword prefilter improved precision for heterogeneous biomedical topics</li>
 </ul>
 <hr>
 </section>
 <section id="reflections" class="level2">
-<h2 class="anchored" data-anchor-id="reflections">💡 Reflections</h2>
+<h2 class="anchored" data-anchor-id="reflections">Reflections</h2>
 <section id="what-i-learned" class="level3">
 <h3 class="anchored" data-anchor-id="what-i-learned">What I Learned</h3>
+<p>This project strengthened my ability to:</p>
 <ul>
-<li>RAG pipelines are highly effective for grounding LLM responses in real data<br>
-</li>
-<li>Embedding-based retrieval significantly improves understanding of unstructured text<br>
-</li>
-<li>Designing reliable AI systems requires controlling hallucination and enforcing structure</li>
+<li>Build an end-to-end NLP system from raw documents to LLM output</li>
+<li>Apply embeddings for real-world information retrieval</li>
+<li>Design RAG pipelines with hallucination control</li>
+<li>Think beyond assignment requirements toward production-ready architecture</li>
 </ul>
+<p>It also deepened my understanding of the trade-offs between retrieval quality, chunk granularity, system modularity, and answer grounding.</p>
 </section>
 <section id="limitations" class="level3">
 <h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
 <ul>
-<li>Performance depends on document quality and formatting<br>
-</li>
-<li>Long documents may require more advanced chunking strategies<br>
-</li>
-<li>No domain-specific fine-tuning (e.g., insurance-specific models)</li>
+<li>No OCR support for scanned PDFs</li>
+<li>Biomedical-specific embedding models could further improve domain alignment</li>
+<li>Cross-encoder reranking could improve retrieval precision</li>
+<li>Citation granularity could be improved to link answers to exact PDF page locations</li>
 </ul>
 </section>
 <section id="next-steps" class="level3">
 <h3 class="anchored" data-anchor-id="next-steps">Next Steps</h3>
+<p>If I continue this project, I would focus on:</p>
 <ul>
-<li>Add citation highlighting (show exact source location)<br>
-</li>
-<li>Improve comparison visualization (UI enhancement)<br>
-</li>
-<li>Explore domain-specific embeddings for higher accuracy</li>
+<li>Adding PDF page-level citation linking</li>
+<li>Testing biomedical-specific embedding models such as PubMedBERT</li>
+<li>Adding cross-encoder reranking for more precise retrieval</li>
+<li>Expanding evaluation with a more formal benchmark framework</li>
 </ul>
 <hr>
 </section>
 </section>
 <section id="tech-stack" class="level2">
-<h2 class="anchored" data-anchor-id="tech-stack">🛠 Tech Stack</h2>
+<h2 class="anchored" data-anchor-id="tech-stack">Tech Stack</h2>
 <ul>
-<li>Python<br>
-</li>
-<li>Streamlit<br>
-</li>
-<li>LLM (Gemini / OpenAI)<br>
-</li>
-<li>Embeddings (Sentence Transformers / API-based)<br>
-</li>
-<li>RAG Pipeline Design</li>
+<li>Python</li>
+<li>Sentence Transformers</li>
+<li>NumPy</li>
+<li>OpenAI API</li>
+<li>Streamlit</li>
+<li>PyMuPDF</li>
+<li>python-dotenv</li>
 </ul>
 <hr>
 </section>
 <section id="why-this-project-matters" class="level2">
-<h2 class="anchored" data-anchor-id="why-this-project-matters">🚀 Why This Project Matters</h2>
-<p>This project demonstrates my ability to: - Build end-to-end AI systems from unstructured data<br>
-- Apply NLP and LLM techniques to real-world problems<br>
-- Translate technical solutions into practical business applications<br>
-- Design user-facing tools that support decision-making</p>
-<p>It reflects my interest in using data and AI to solve complex business problems, particularly in areas involving document analysis, decision support, and automation.</p>
+<h2 class="anchored" data-anchor-id="why-this-project-matters">Why This Project Matters</h2>
+<p>This project reflects my interest in building AI systems that are both technically robust and practically useful. Rather than treating LLMs as black-box generators, I focused on grounding, retrieval quality, modular system design, and interface usability.</p>
+<p>It demonstrates how NLP and generative AI can be applied to real-world knowledge retrieval problems where trust, evidence, and system reliability matter.</p>
 
 
 </section>
@@ -393,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Saku000\.github\.io\/Zihao-Chen-Portfolio\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
