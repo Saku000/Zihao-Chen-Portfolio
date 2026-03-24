@@ -105,6 +105,41 @@
     "text": "Why This Project Matters\nThis project demonstrates my ability to: - Build end-to-end AI systems from unstructured data\n- Apply NLP and LLM techniques to real-world problems\n- Translate technical solutions into practical business applications\n- Design user-facing tools that support decision-making\nIt reflects my interest in using data and AI to solve complex business problems, particularly in areas involving document analysis, decision support, and automation."
   },
   {
+    "objectID": "index copy.html",
+    "href": "index copy.html",
+    "title": "Hi, I’m Zihao Chen 👋",
+    "section": "",
+    "text": "Data Analysis & Business Insights\nTransform raw data into strategic recommendations using Python, SQL, and visualization tools.\nMachine Learning Applications\nBuild predictive models for customer behavior, demand forecasting, and decision optimization.\nAI Systems & RAG Pipelines\nDevelop end-to-end AI systems, including semantic search and LLM-powered applications.\n\n\n\n\n\n\nBuilt an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.\n\n\n\nBuilt a structured LLM-powered system that automatically converts source code into high-quality documentation using schema-constrained generation and AST-based parsing.\n\n\n\n\nI am actively exploring opportunities in:\n\nBusiness Analyst\nData Analyst\nConsultant\nOperations / Inventory Analyst\n\n\n\n\n\nLinkedIn\nGitHub"
+  },
+  {
+    "objectID": "index copy.html#what-i-do",
+    "href": "index copy.html#what-i-do",
+    "title": "Hi, I’m Zihao Chen 👋",
+    "section": "",
+    "text": "Data Analysis & Business Insights\nTransform raw data into strategic recommendations using Python, SQL, and visualization tools.\nMachine Learning Applications\nBuild predictive models for customer behavior, demand forecasting, and decision optimization.\nAI Systems & RAG Pipelines\nDevelop end-to-end AI systems, including semantic search and LLM-powered applications."
+  },
+  {
+    "objectID": "index copy.html#featured-projects",
+    "href": "index copy.html#featured-projects",
+    "title": "Hi, I’m Zihao Chen 👋",
+    "section": "",
+    "text": "Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.\n\n\n\nBuilt a structured LLM-powered system that automatically converts source code into high-quality documentation using schema-constrained generation and AST-based parsing."
+  },
+  {
+    "objectID": "index copy.html#career-interests",
+    "href": "index copy.html#career-interests",
+    "title": "Hi, I’m Zihao Chen 👋",
+    "section": "",
+    "text": "I am actively exploring opportunities in:\n\nBusiness Analyst\nData Analyst\nConsultant\nOperations / Inventory Analyst"
+  },
+  {
+    "objectID": "index copy.html#connect-with-me",
+    "href": "index copy.html#connect-with-me",
+    "title": "Hi, I’m Zihao Chen 👋",
+    "section": "",
+    "text": "LinkedIn\nGitHub"
+  },
+  {
     "objectID": "posts/code-doc-generator/index.html",
     "href": "posts/code-doc-generator/index.html",
     "title": "Code Documentation Generator — LLM-Powered Code Intelligence System",

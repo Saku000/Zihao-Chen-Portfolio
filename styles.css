@@ -1,1 +1,252 @@
-/* Custom styles — add your own here */
+/* ===== GLOBAL DARK NEON TECH STYLE ===== */
+
+:root {
+    --bg: #070b14;
+    --bg-soft: #0d1322;
+    --panel: #10182a;
+    --panel-2: #0f1728;
+    --text: #e8eefc;
+    --text-soft: #a9b4c9;
+    --line: #1d2942;
+    --blue: #5ab2ff;
+    --blue-strong: #2f7bff;
+    --cyan: #4ef2e8;
+    --glow-blue: 0 0 12px rgba(90, 178, 255, 0.45), 0 0 24px rgba(47, 123, 255, 0.22);
+    --glow-cyan: 0 0 12px rgba(78, 242, 232, 0.35), 0 0 24px rgba(78, 242, 232, 0.16);
+}
+
+html,
+body {
+    background:
+        radial-gradient(circle at top left, rgba(47, 123, 255, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(78, 242, 232, 0.08), transparent 24%),
+        linear-gradient(180deg, #070b14 0%, #0a1020 100%);
+    color: var(--text);
+}
+
+/* ===== Typography ===== */
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+h1 {
+    text-shadow: 0 0 14px rgba(90, 178, 255, 0.15);
+}
+
+h2 {
+    display: inline-block;
+    padding-bottom: 0.15rem;
+    border-bottom: 1px solid rgba(90, 178, 255, 0.28);
+    box-shadow: inset 0 -1px 0 rgba(90, 178, 255, 0.1);
+}
+
+p,
+li {
+    color: var(--text-soft);
+    line-height: 1.72;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background: rgba(10, 16, 32, 0.78) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(90, 178, 255, 0.14);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+}
+
+.navbar a,
+.navbar-brand {
+    color: var(--text) !important;
+}
+
+.navbar a:hover,
+.navbar-brand:hover {
+    color: var(--blue) !important;
+    text-shadow: 0 0 8px rgba(90, 178, 255, 0.32);
+}
+
+/* ===== Links ===== */
+a {
+    color: var(--blue);
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #8bcbff;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(90, 178, 255, 0.28);
+}
+
+/* ===== Main content container feel ===== */
+.page-columns,
+.content,
+main.content,
+.quarto-about-jolla {
+    position: relative;
+}
+
+main.content {
+    background: rgba(10, 16, 32, 0.28);
+    border: 1px solid rgba(90, 178, 255, 0.08);
+    border-radius: 20px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    padding: 1.2rem 1.4rem;
+}
+
+/* ===== About page avatar/card area ===== */
+.quarto-about-jolla .about-entity {
+    background: linear-gradient(180deg, rgba(16, 24, 42, 0.96), rgba(12, 18, 32, 0.96));
+    border: 1px solid rgba(90, 178, 255, 0.16);
+    border-radius: 22px;
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.34),
+        0 0 0 1px rgba(90, 178, 255, 0.05),
+        0 0 24px rgba(47, 123, 255, 0.08);
+    padding: 1rem;
+}
+
+.quarto-about-jolla .about-image {
+    border-radius: 18px;
+    border: 1px solid rgba(90, 178, 255, 0.22);
+    box-shadow:
+        0 0 0 3px rgba(90, 178, 255, 0.04),
+        0 0 20px rgba(90, 178, 255, 0.12);
+}
+
+/* ===== Buttons / social links ===== */
+.about-link,
+.btn,
+button,
+a.btn {
+    border-radius: 12px !important;
+    transition: all 0.22s ease;
+}
+
+.about-link {
+    background: linear-gradient(180deg, rgba(19, 30, 53, 0.95), rgba(14, 22, 38, 0.95));
+    border: 1px solid rgba(90, 178, 255, 0.14);
+    color: var(--text) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+.about-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(90, 178, 255, 0.4);
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.28),
+        0 0 16px rgba(90, 178, 255, 0.18);
+    color: #ffffff !important;
+}
+
+/* ===== Project cards (for future use) ===== */
+.project-card {
+    background: linear-gradient(145deg, rgba(16, 24, 42, 0.96), rgba(11, 17, 31, 0.96));
+    border: 1px solid rgba(90, 178, 255, 0.14);
+    border-radius: 18px;
+    padding: 1.25rem;
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.26),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(90, 178, 255, 0.42);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(47, 123, 255, 0.16);
+}
+
+.project-tag {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(90, 178, 255, 0.1);
+    color: #8dcbff;
+    border: 1px solid rgba(90, 178, 255, 0.14);
+    box-shadow: 0 0 10px rgba(90, 178, 255, 0.08);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.project-title {
+    color: #ffffff;
+}
+
+.project-desc {
+    color: var(--text-soft);
+}
+
+/* ===== Neon accent lines ===== */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(90, 178, 255, 0.36) 25%,
+            rgba(78, 242, 232, 0.34) 50%,
+            rgba(90, 178, 255, 0.36) 75%,
+            transparent 100%);
+    box-shadow: 0 0 10px rgba(90, 178, 255, 0.12);
+}
+
+/* ===== Code blocks ===== */
+pre,
+code {
+    border-radius: 12px;
+}
+
+pre {
+    background: #0b1222 !important;
+    border: 1px solid rgba(90, 178, 255, 0.14);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.01);
+}
+
+code {
+    color: #9ad1ff;
+}
+
+/* ===== Subtle neon text utility ===== */
+.neon-text {
+    color: #dff3ff;
+    text-shadow:
+        0 0 8px rgba(90, 178, 255, 0.35),
+        0 0 18px rgba(47, 123, 255, 0.18);
+}
+
+/* ===== Optional glow for important buttons ===== */
+.glow-btn {
+    background: linear-gradient(135deg, #1e3f86, #2f7bff);
+    color: #fff !important;
+    border: 1px solid rgba(90, 178, 255, 0.25);
+    box-shadow:
+        0 0 12px rgba(90, 178, 255, 0.26),
+        0 10px 22px rgba(47, 123, 255, 0.2);
+}
+
+.glow-btn:hover {
+    box-shadow:
+        0 0 18px rgba(90, 178, 255, 0.34),
+        0 14px 28px rgba(47, 123, 255, 0.28);
+}
+
+/* ===== Smooth feel ===== */
+* {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
