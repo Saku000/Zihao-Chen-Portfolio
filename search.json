@@ -11,14 +11,14 @@
     "href": "posts/semantic-search-rag/index.html",
     "title": "Semantic Search & RAG System for Medical Literature",
     "section": "",
-    "text": "Medical research papers are information-dense, terminology-heavy, and difficult to navigate with traditional keyword search alone. Users often need not just document retrieval, but grounded answers to natural-language questions based on relevant evidence.\nThis project addressed that challenge by building a semantic search and RAG system for medical literature, designed to help users retrieve relevant papers and generate evidence-grounded answers from a corpus of more than 100 medical research papers."
+    "text": "🔗 View Project on GitHub"
   },
   {
     "objectID": "posts/semantic-search-rag/index.html#the-problem",
     "href": "posts/semantic-search-rag/index.html#the-problem",
     "title": "Semantic Search & RAG System for Medical Literature",
-    "section": "",
-    "text": "Medical research papers are information-dense, terminology-heavy, and difficult to navigate with traditional keyword search alone. Users often need not just document retrieval, but grounded answers to natural-language questions based on relevant evidence.\nThis project addressed that challenge by building a semantic search and RAG system for medical literature, designed to help users retrieve relevant papers and generate evidence-grounded answers from a corpus of more than 100 medical research papers."
+    "section": "The Problem",
+    "text": "The Problem\nMedical research papers are information-dense, terminology-heavy, and difficult to navigate with traditional keyword search alone. Users often need not just document retrieval, but grounded answers to natural-language questions based on relevant evidence.\nThis project addressed that challenge by building a semantic search and RAG system for medical literature, designed to help users retrieve relevant papers and generate evidence-grounded answers from a corpus of more than 100 medical research papers."
   },
   {
     "objectID": "posts/semantic-search-rag/index.html#my-approach",
@@ -60,14 +60,14 @@
     "href": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html",
     "title": "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer",
     "section": "",
-    "text": "Insurance policy documents are often long, complex, and difficult to interpret. Users struggle to quickly understand coverage details, identify exclusions, or compare multiple policies. Traditional keyword search is insufficient for navigating unstructured legal text, and manual comparison is time-consuming and error-prone.\nThis creates a need for an intelligent system that can: - Understand policy documents semantically\n- Answer user questions accurately\n- Compare multiple policies in a structured way"
+    "text": "🔗 View Project on GitHub"
   },
   {
     "objectID": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#the-problem",
     "href": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#the-problem",
     "title": "Gemini PolicyPal — AI-Powered Insurance Policy Analyzer",
-    "section": "",
-    "text": "Insurance policy documents are often long, complex, and difficult to interpret. Users struggle to quickly understand coverage details, identify exclusions, or compare multiple policies. Traditional keyword search is insufficient for navigating unstructured legal text, and manual comparison is time-consuming and error-prone.\nThis creates a need for an intelligent system that can: - Understand policy documents semantically\n- Answer user questions accurately\n- Compare multiple policies in a structured way"
+    "section": "The Problem",
+    "text": "The Problem\nInsurance policy documents are often long, complex, and difficult to interpret. Users struggle to quickly understand coverage details, identify exclusions, or compare multiple policies. Traditional keyword search is insufficient for navigating unstructured legal text, and manual comparison is time-consuming and error-prone.\nThis creates a need for an intelligent system that can: - Understand policy documents semantically\n- Answer user questions accurately\n- Compare multiple policies in a structured way"
   },
   {
     "objectID": "posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html#my-approach",
@@ -105,11 +105,60 @@
     "text": "Why This Project Matters\nThis project demonstrates my ability to: - Build end-to-end AI systems from unstructured data\n- Apply NLP and LLM techniques to real-world problems\n- Translate technical solutions into practical business applications\n- Design user-facing tools that support decision-making\nIt reflects my interest in using data and AI to solve complex business problems, particularly in areas involving document analysis, decision support, and automation."
   },
   {
+    "objectID": "posts/code-doc-generator/index.html",
+    "href": "posts/code-doc-generator/index.html",
+    "title": "Code Documentation Generator — LLM-Powered Code Intelligence System",
+    "section": "",
+    "text": "🔗 View Project on GitHub"
+  },
+  {
+    "objectID": "posts/code-doc-generator/index.html#the-problem",
+    "href": "posts/code-doc-generator/index.html#the-problem",
+    "title": "Code Documentation Generator — LLM-Powered Code Intelligence System",
+    "section": "🧩 The Problem",
+    "text": "🧩 The Problem\nSoftware documentation is often incomplete, inconsistent, or entirely missing. While large language models can generate summaries, they introduce critical challenges in real-world applications:\n\nHallucinated or incorrect content\n\nUnstable formatting\n\nNon-deterministic outputs\n\nDifficulty parsing large or complex codebases\n\nThis project addresses the need for a reliable, structured system that can automatically generate high-quality documentation from source code while maintaining consistency and control."
+  },
+  {
+    "objectID": "posts/code-doc-generator/index.html#my-approach",
+    "href": "posts/code-doc-generator/index.html#my-approach",
+    "title": "Code Documentation Generator — LLM-Powered Code Intelligence System",
+    "section": "⚙️ My Approach",
+    "text": "⚙️ My Approach\nI designed a production-oriented NLP pipeline that integrates LLM generation into a deterministic system.\n\n🏗 System Architecture\nThe system follows a modular architecture:\n\nStreamlit UI (user interaction & file upload)\n\nRenderer layer (orchestration and chunking)\n\nLLM client (schema-constrained generation)\n\nPrompt layer (hallucination control and formatting stability)\n\nThis separation of concerns ensures scalability, reliability, and maintainability. :contentReferenceoaicite:0\n\n\n\n🧠 Key Design Components\n\n1. Schema-Constrained Generation\n\nEnforced structured outputs using JSON Schema\n\nEnsured consistent formatting and valid outputs\n\nReduced hallucination and parsing errors\n\n\n\n2. Hierarchical Summarization Pipeline\n\nStage 1: File-level structured summaries\n\nStage 2: Project-level aggregation\n\nThis improves coherence and scalability for large codebases.\n\n\n3. Syntax-Aware Chunking (AST-Based)\n\nUsed Python AST parsing to preserve code structure\n\nAvoided splitting functions or classes mid-block\n\nEnsured semantically meaningful input to LLM\n\n\n\n4. Hallucination Mitigation\n\nStrict prompt constraints\n\n“Do NOT invent APIs” rules\n\nJSON-only output enforcement\n\n\n\n5. Robust Fallback Strategy\n\nPrimary: OpenAI LLM generation\n\nFallback: Deterministic placeholder generation\n\nThis ensures the system never fails even when API is unavailable. :contentReferenceoaicite:1"
+  },
+  {
+    "objectID": "posts/code-doc-generator/index.html#key-results",
+    "href": "posts/code-doc-generator/index.html#key-results",
+    "title": "Code Documentation Generator — LLM-Powered Code Intelligence System",
+    "section": "📊 Key Results",
+    "text": "📊 Key Results\n\nBuilt a fully functional system that converts raw code into structured documentation\n\nEnsured stable and consistent outputs through schema enforcement\n\nMaintained usability even under API failures (graceful degradation)\n\nDelivered an interactive UI supporting file upload, preview, and export"
+  },
+  {
+    "objectID": "posts/code-doc-generator/index.html#reflections",
+    "href": "posts/code-doc-generator/index.html#reflections",
+    "title": "Code Documentation Generator — LLM-Powered Code Intelligence System",
+    "section": "💡 Reflections",
+    "text": "💡 Reflections\n\nWhat I Learned\n\nLLM systems require strict structure and constraints to be reliable\n\nSchema enforcement is critical for production-grade generative AI\n\nMulti-stage pipelines improve scalability and output quality\n\nDefensive engineering is essential when integrating LLMs\n\nThis project shifted my perspective from prompt-based experimentation → system-level design thinking.\n\n\n\nLimitations\n\nDocumentation quality depends on source code clarity\n\nVery large projects may require performance optimization\n\nStrict schemas limit expressive flexibility\n\nCannot infer undocumented business logic\n\n\n\n\nNext Steps\n\nImprove documentation richness while maintaining structure\n\nSupport additional programming languages\n\nAdd version-aware documentation updates\n\nIntegrate into enterprise developer workflows"
+  },
+  {
+    "objectID": "posts/code-doc-generator/index.html#tech-stack",
+    "href": "posts/code-doc-generator/index.html#tech-stack",
+    "title": "Code Documentation Generator — LLM-Powered Code Intelligence System",
+    "section": "🛠 Tech Stack",
+    "text": "🛠 Tech Stack\n\nPython\n\nStreamlit\n\nOpenAI API\n\nJSON Schema\n\nAST Parsing\n\nLLM Pipeline Design"
+  },
+  {
+    "objectID": "posts/code-doc-generator/index.html#why-this-project-matters",
+    "href": "posts/code-doc-generator/index.html#why-this-project-matters",
+    "title": "Code Documentation Generator — LLM-Powered Code Intelligence System",
+    "section": "🚀 Why This Project Matters",
+    "text": "🚀 Why This Project Matters\nThis project demonstrates my ability to:\n\nBuild reliable, production-oriented AI systems\n\nIntegrate LLMs with structured and deterministic pipelines\n\nDesign systems that balance flexibility and robustness\n\nApply generative AI to real-world productivity and automation problems\n\nIt reflects my focus on building AI systems that are not just powerful, but reliable and usable in real-world environments."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Hi, I’m Zihao Chen 👋",
     "section": "",
-    "text": "Data Analysis & Business Insights\nTransform raw data into strategic recommendations using Python, SQL, and visualization tools.\nMachine Learning Applications\nBuild predictive models for customer behavior, demand forecasting, and decision optimization.\nAI Systems & RAG Pipelines\nDevelop end-to-end AI systems, including semantic search and LLM-powered applications.\n\n\n\n\n\n\nBuilt an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.\n\n\n\n\nI am actively exploring opportunities in:\n\nBusiness Analyst\nData Analyst\nConsultant\nOperations / Inventory Analyst\n\n\n\n\n\nLinkedIn\nGitHub"
+    "text": "Data Analysis & Business Insights\nTransform raw data into strategic recommendations using Python, SQL, and visualization tools.\nMachine Learning Applications\nBuild predictive models for customer behavior, demand forecasting, and decision optimization.\nAI Systems & RAG Pipelines\nDevelop end-to-end AI systems, including semantic search and LLM-powered applications.\n\n\n\n\n\n\nBuilt an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.\n\n\n\nBuilt a structured LLM-powered system that automatically converts source code into high-quality documentation using schema-constrained generation and AST-based parsing.\n\n\n\n\nI am actively exploring opportunities in:\n\nBusiness Analyst\nData Analyst\nConsultant\nOperations / Inventory Analyst\n\n\n\n\n\nLinkedIn\nGitHub"
   },
   {
     "objectID": "index.html#what-i-do",
@@ -123,7 +172,7 @@
     "href": "index.html#featured-projects",
     "title": "Hi, I’m Zihao Chen 👋",
     "section": "",
-    "text": "Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering."
+    "text": "Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.\n\n\n\nBuilt a structured LLM-powered system that automatically converts source code into high-quality documentation using schema-constrained generation and AST-based parsing."
   },
   {
     "objectID": "index.html#career-interests",
