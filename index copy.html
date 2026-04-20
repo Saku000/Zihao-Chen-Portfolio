@@ -29,10 +29,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -44,18 +40,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-5cbbe60be6a963c25649c72cdbde2b5f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,7 +59,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -86,7 +70,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">My Portfolio</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -97,8 +80,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./portfolio.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Zihao Chen</span></a>
+<span class="menu-text">About Me</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -111,26 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#hi-im-zihao-chen" id="toc-hi-im-zihao-chen" class="nav-link active" data-scroll-target="#hi-im-zihao-chen">Hi, I’m Zihao Chen 👋</a>
-  <ul class="collapse">
-  <li><a href="#what-i-do" id="toc-what-i-do" class="nav-link" data-scroll-target="#what-i-do">🔍 What I Do</a></li>
-  <li><a href="#featured-projects" id="toc-featured-projects" class="nav-link" data-scroll-target="#featured-projects">🚀 Featured Projects</a>
-  <ul class="collapse">
-  <li><a href="#gemini-policypal-ai-powered-insurance-policy-analyzer" id="toc-gemini-policypal-ai-powered-insurance-policy-analyzer" class="nav-link" data-scroll-target="#gemini-policypal-ai-powered-insurance-policy-analyzer">Gemini PolicyPal — AI-Powered Insurance Policy Analyzer</a></li>
-  <li><a href="#semantic-search-rag-system-for-medical-literature" id="toc-semantic-search-rag-system-for-medical-literature" class="nav-link" data-scroll-target="#semantic-search-rag-system-for-medical-literature">Semantic Search &amp; RAG System for Medical Literature</a></li>
-  <li><a href="#code-documentation-generator-llm-powered-code-intelligence-system" id="toc-code-documentation-generator-llm-powered-code-intelligence-system" class="nav-link" data-scroll-target="#code-documentation-generator-llm-powered-code-intelligence-system">Code Documentation Generator — LLM-Powered Code Intelligence System</a></li>
-  </ul></li>
-  <li><a href="#career-interests" id="toc-career-interests" class="nav-link" data-scroll-target="#career-interests">🎯 Career Interests</a></li>
-  <li><a href="#connect-with-me" id="toc-connect-with-me" class="nav-link" data-scroll-target="#connect-with-me">📫 Connect with Me</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
@@ -138,9 +106,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="hi-im-zihao-chen" class="level1">
-<h1>Hi, I’m Zihao Chen 👋</h1>
+<h1>Hi, I’m Zihao Chen</h1>
 <section id="what-i-do" class="level2">
-<h2 class="anchored" data-anchor-id="what-i-do">🔍 What I Do</h2>
+<h2 class="anchored" data-anchor-id="what-i-do">What I Do</h2>
 <ul>
 <li><p><strong>Data Analysis &amp; Business Insights</strong><br>
 Transform raw data into strategic recommendations using Python, SQL, and visualization tools.</p></li>
@@ -151,7 +119,7 @@ Develop end-to-end AI systems, including semantic search and LLM-powered applica
 </ul>
 </section>
 <section id="featured-projects" class="level2">
-<h2 class="anchored" data-anchor-id="featured-projects">🚀 Featured Projects</h2>
+<h2 class="anchored" data-anchor-id="featured-projects">Featured Projects</h2>
 <section id="gemini-policypal-ai-powered-insurance-policy-analyzer" class="level3">
 <h3 class="anchored" data-anchor-id="gemini-policypal-ai-powered-insurance-policy-analyzer"><a href="./posts/Gemini PolicyPal — AI-Powered Insurance Policy Analyzer/index.html">Gemini PolicyPal — AI-Powered Insurance Policy Analyzer</a></h3>
 <p>Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.</p>
@@ -166,7 +134,7 @@ Develop end-to-end AI systems, including semantic search and LLM-powered applica
 </section>
 </section>
 <section id="career-interests" class="level2">
-<h2 class="anchored" data-anchor-id="career-interests">🎯 Career Interests</h2>
+<h2 class="anchored" data-anchor-id="career-interests">Career Interests</h2>
 <p>I am actively exploring opportunities in:</p>
 <ul>
 <li>Business Analyst</li>
@@ -176,7 +144,7 @@ Develop end-to-end AI systems, including semantic search and LLM-powered applica
 </ul>
 </section>
 <section id="connect-with-me" class="level2">
-<h2 class="anchored" data-anchor-id="connect-with-me">📫 Connect with Me</h2>
+<h2 class="anchored" data-anchor-id="connect-with-me">Connect with Me</h2>
 <ul>
 <li><a href="https://www.linkedin.com/in/zihaochen-2243b3375/">LinkedIn</a></li>
 <li><a href="https://github.com/Saku000">GitHub</a></li>
