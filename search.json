@@ -144,7 +144,7 @@
     "href": "portfolio.html",
     "title": "Projects",
     "section": "",
-    "text": "Data Analysis & Business Insights\nTransform raw data into strategic recommendations using Python, SQL, and visualization tools.\nMachine Learning Applications\nBuild predictive models for customer behavior, demand forecasting, and decision optimization.\nAI Systems & RAG Pipelines\nDevelop end-to-end AI systems, including semantic search and LLM-powered applications.\n\n\n\n\n\n\n\nBuilt an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\nView Project\n\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.\n\nView Project\n\n\n\n\nBuilt a structured LLM-powered system that automatically converts source code into high-quality documentation using schema-constrained generation and AST-based parsing.\n\nView Project\n\n\n\n\n\n\nI am actively exploring opportunities in:\n\nBusiness Analyst\nData Analyst\nConsultant\nOperations / Inventory Analyst\n\n\n\n\n\nLinkedIn\nGitHub"
+    "text": "Data Analysis & Business Insights\nTransform raw data into strategic recommendations using Python, SQL, and visualization tools.\nMachine Learning Applications\nBuild predictive models for customer behavior, demand forecasting, and decision optimization.\nAI Systems & RAG Pipelines\nDevelop end-to-end AI systems, including semantic search and LLM-powered applications.\n\n\n\n\n\n\n\nBuilt an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.\n\nView Project\n\n\n\n\nBuilt a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.\n\nView Project\n\n\n\n\nBuilt a structured LLM-powered system that automatically converts source code into high-quality documentation using schema-constrained generation and AST-based parsing.\n\nView Project\n\n\n\n\n\n\nI am actively exploring opportunities in:\n\nBusiness Analyst\nData Analyst\nConsultant\nOperations / Inventory Analyst\n\n\n\n\n\nLinkedIn GitHub"
   },
   {
     "objectID": "portfolio.html#what-i-do",
@@ -172,7 +172,7 @@
     "href": "portfolio.html#connect-with-me",
     "title": "Projects",
     "section": "",
-    "text": "LinkedIn\nGitHub"
+    "text": "LinkedIn GitHub"
   },
   {
     "objectID": "posts/code-doc-generator/index.html",
