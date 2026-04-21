@@ -567,7 +567,6 @@ a {
 }
 
 .btn-github:hover {
-  background: var(--bg);
-  color: var(--text);
-  border-color: var(--text);
+  background: var(--bg-hover);
+
 }
