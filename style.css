@@ -281,7 +281,7 @@ a {
   color: var(--text);
 }
 
-.project > p {
+.project>p {
   margin-top: 0.5rem;
   color: var(--text-secondary);
   font-size: 0.875rem;
@@ -445,8 +445,13 @@ a {
   transform: none;
 }
 
-.fade-in:nth-child(2) { transition-delay: 0.08s; }
-.fade-in:nth-child(3) { transition-delay: 0.16s; }
+.fade-in:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.fade-in:nth-child(3) {
+  transition-delay: 0.16s;
+}
 
 /* Responsive */
 
@@ -542,4 +547,25 @@ a {
   .badge-org {
     font-size: 0.6875rem;
   }
+}
+
+.project-links {
+  margin-top: 16px;
+}
+
+.btn-github {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #111;
+  transition: all 0.2s ease;
+}
+
+.btn-github:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
 }
