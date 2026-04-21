@@ -1,40 +1,23 @@
 ---
 title: ""
+format:
+  html:
+    page-layout: full
 ---
 
-# Hi, I'm Zihao Chen 👋
+::: {.hero}
+::: {.hero-inner}
+::: {.hero-title}
+Zihao Chen
+:::
 
-## 🔍 What I Do
+::: {.subtitle}
+Data Analyst · AI Builder · Problem Solver
+:::
 
-- **Data Analysis & Business Insights**  
-  Transform raw data into strategic recommendations using Python, SQL, and visualization tools.
-
-- **Machine Learning Applications**  
-  Build predictive models for customer behavior, demand forecasting, and decision optimization.
-
-- **AI Systems & RAG Pipelines**  
-  Develop end-to-end AI systems, including semantic search and LLM-powered applications.
-
-## 🚀 Featured Projects
-
-### [Gemini PolicyPal — AI-Powered Insurance Policy Analyzer](posts/Gemini%20PolicyPal%20%E2%80%94%20AI-Powered%20Insurance%20Policy%20Analyzer/index.qmd)
-
-Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.
-
-### [Semantic Search & RAG System for Medical Literature](posts/semantic-search-rag/index.qmd)
-
-Built a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.
-
-## 🎯 Career Interests
-
-I am actively exploring opportunities in:
-
-- Business Analyst
-- Data Analyst
-- Consultant
-- Operations / Inventory Analyst
-
-## 📫 Connect with Me
-
-- [LinkedIn](https://www.linkedin.com/in/zihaochen-2243b3375/)
-- [GitHub](https://github.com/Saku000)
+::: {.buttons}
+[Projects](portfolio.qmd){.btn .secondary}
+[About Me](about.qmd){.btn .secondary}
+:::
+:::
+:::

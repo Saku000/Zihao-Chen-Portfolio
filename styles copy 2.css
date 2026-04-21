@@ -1,0 +1,206 @@
+:root {
+    --bg: #070b14;
+    --text: #f1ecff;
+    --text-soft: #b7accf;
+    --violet: #c084fc;
+    --purple: #a855f7;
+    --purple-strong: #7c3aed;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.20), transparent 30%),
+        radial-gradient(circle at 80% 0%, rgba(192, 132, 252, 0.14), transparent 28%),
+        linear-gradient(180deg, #070b14 0%, #0b0a18 100%);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+.navbar {
+    background: rgba(11, 10, 24, 0.78) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.16);
+}
+
+.navbar a,
+.navbar-brand {
+    color: var(--text) !important;
+}
+
+.navbar a:hover,
+.navbar-brand:hover {
+    color: var(--violet) !important;
+}
+
+body:has(.hero) main.content {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body:has(.hero) .quarto-title-block {
+    display: none !important;
+}
+
+.hero {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 18vh;
+    text-align: center;
+}
+
+.hero-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-title {
+    font-size: 110px;
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 0;
+
+    background: linear-gradient(90deg, #d8b4fe 0%, #c084fc 35%, #a855f7 65%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 20px rgba(168, 85, 247, 0.28),
+        0 0 40px rgba(124, 58, 237, 0.18);
+}
+
+.subtitle {
+    margin-top: 28px;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--text-soft);
+    max-width: 760px;
+}
+
+.buttons {
+    margin-top: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    padding: 14px 30px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none !important;
+    color: white !important;
+    transition: all 0.25s ease;
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(192, 132, 252, 0.45);
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 0 0 1px rgba(168, 85, 247, 0.06),
+        0 10px 28px rgba(124, 58, 237, 0.18),
+        0 0 18px rgba(168, 85, 247, 0.16);
+}
+
+.btn.secondary:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(216, 180, 254, 0.75);
+    box-shadow:
+        0 0 0 1px rgba(216, 180, 254, 0.12),
+        0 16px 34px rgba(124, 58, 237, 0.24),
+        0 0 24px rgba(168, 85, 247, 0.24);
+    color: white !important;
+}
+
+a {
+    color: var(--violet);
+}
+
+a:hover {
+    color: #e9d5ff;
+}
+
+.quarto-about-jolla .about-entity {
+    background: linear-gradient(180deg, rgba(20, 16, 36, 0.96), rgba(12, 10, 24, 0.96));
+    border-radius: 22px;
+    border: 1px solid rgba(168, 85, 247, 0.16);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.project-card {
+    background: linear-gradient(145deg, rgba(20, 16, 36, 0.96), rgba(12, 10, 24, 0.96));
+    border-radius: 18px;
+    padding: 1.2rem;
+    border: 1px solid rgba(168, 85, 247, 0.14);
+    transition: all 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(192, 132, 252, 0.42);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(168, 85, 247, 0.18);
+}
+
+@media (max-width: 900px) {
+    .hero {
+        padding-top: 16vh;
+    }
+
+    .hero-title {
+        font-size: 72px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .btn {
+        min-width: 130px;
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-title {
+        font-size: 56px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 180px;
+    }
+}

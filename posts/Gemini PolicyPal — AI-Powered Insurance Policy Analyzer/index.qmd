@@ -7,6 +7,10 @@ description: >
   Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.
 ---
 
+[🔗 View Project on GitHub](https://github.com/Saku000/Gemini-PolicyPal)
+
+---
+
 ## The Problem
 
 Insurance policy documents are often long, complex, and difficult to interpret. Users struggle to quickly understand coverage details, identify exclusions, or compare multiple policies. Traditional keyword search is insufficient for navigating unstructured legal text, and manual comparison is time-consuming and error-prone.

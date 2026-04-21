@@ -1,0 +1,46 @@
+git add .
+git commit -m "update portfolio content"
+git push origin main---
+title: ""
+---
+
+# Hi, I'm Zihao Chen 
+
+## What I Do
+
+- **Data Analysis & Business Insights**  
+  Transform raw data into strategic recommendations using Python, SQL, and visualization tools.
+
+- **Machine Learning Applications**  
+  Build predictive models for customer behavior, demand forecasting, and decision optimization.
+
+- **AI Systems & RAG Pipelines**  
+  Develop end-to-end AI systems, including semantic search and LLM-powered applications.
+
+## Featured Projects
+
+### [Gemini PolicyPal — AI-Powered Insurance Policy Analyzer](posts/Gemini%20PolicyPal%20%E2%80%94%20AI-Powered%20Insurance%20Policy%20Analyzer/index.qmd)
+
+Built an end-to-end LLM-powered system for analyzing and comparing insurance policies using RAG and semantic retrieval.
+
+### [Semantic Search & RAG System for Medical Literature](posts/semantic-search-rag/index.qmd)
+
+Built a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.
+
+### [Code Documentation Generator — LLM-Powered Code Intelligence System](posts/code-doc-generator/index.qmd)
+
+Built a structured LLM-powered system that automatically converts source code into high-quality documentation using schema-constrained generation and AST-based parsing.
+
+## Career Interests
+
+I am actively exploring opportunities in:
+
+- Business Analyst
+- Data Analyst
+- Consultant
+- Operations / Inventory Analyst
+
+## Connect with Me
+
+- [LinkedIn](https://www.linkedin.com/in/zihaochen-2243b3375/)
+- [GitHub](https://github.com/Saku000)

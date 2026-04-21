@@ -1,0 +1,135 @@
+---
+title: "Code Documentation Generator — LLM-Powered Code Intelligence System"
+author: "Zihao Chen"
+date: today
+categories: [AI, NLP, LLM, Python]
+description: >
+  Built a structured LLM-powered system that automatically converts source code into high-quality documentation using schema-constrained generation and AST-based parsing.
+---
+
+[🔗 View Project on GitHub](https://github.com/Saku000/code-doc-generator)
+
+---
+
+## 🧩 The Problem
+
+Software documentation is often incomplete, inconsistent, or entirely missing. While large language models can generate summaries, they introduce critical challenges in real-world applications:
+
+- Hallucinated or incorrect content  
+- Unstable formatting  
+- Non-deterministic outputs  
+- Difficulty parsing large or complex codebases  
+
+This project addresses the need for a **reliable, structured system** that can automatically generate high-quality documentation from source code while maintaining consistency and control.
+
+---
+
+## ⚙️ My Approach
+
+I designed a production-oriented NLP pipeline that integrates LLM generation into a deterministic system.
+
+### 🏗 System Architecture
+
+The system follows a modular architecture:
+
+- Streamlit UI (user interaction & file upload)  
+- Renderer layer (orchestration and chunking)  
+- LLM client (schema-constrained generation)  
+- Prompt layer (hallucination control and formatting stability)  
+
+This separation of concerns ensures scalability, reliability, and maintainability. :contentReference[oaicite:0]{index=0}
+
+---
+
+### 🧠 Key Design Components
+
+#### 1. Schema-Constrained Generation
+- Enforced structured outputs using JSON Schema  
+- Ensured consistent formatting and valid outputs  
+- Reduced hallucination and parsing errors  
+
+#### 2. Hierarchical Summarization Pipeline
+- Stage 1: File-level structured summaries  
+- Stage 2: Project-level aggregation  
+
+This improves coherence and scalability for large codebases.
+
+#### 3. Syntax-Aware Chunking (AST-Based)
+- Used Python AST parsing to preserve code structure  
+- Avoided splitting functions or classes mid-block  
+- Ensured semantically meaningful input to LLM  
+
+#### 4. Hallucination Mitigation
+- Strict prompt constraints  
+- “Do NOT invent APIs” rules  
+- JSON-only output enforcement  
+
+#### 5. Robust Fallback Strategy
+- Primary: OpenAI LLM generation  
+- Fallback: Deterministic placeholder generation  
+
+This ensures the system never fails even when API is unavailable. :contentReference[oaicite:1]{index=1}
+
+---
+
+## 📊 Key Results
+
+- Built a fully functional system that converts raw code into structured documentation  
+- Ensured stable and consistent outputs through schema enforcement  
+- Maintained usability even under API failures (graceful degradation)  
+- Delivered an interactive UI supporting file upload, preview, and export  
+
+---
+
+## 💡 Reflections
+
+### What I Learned
+
+- LLM systems require strict structure and constraints to be reliable  
+- Schema enforcement is critical for production-grade generative AI  
+- Multi-stage pipelines improve scalability and output quality  
+- Defensive engineering is essential when integrating LLMs  
+
+This project shifted my perspective from **prompt-based experimentation → system-level design thinking**.
+
+---
+
+### Limitations
+
+- Documentation quality depends on source code clarity  
+- Very large projects may require performance optimization  
+- Strict schemas limit expressive flexibility  
+- Cannot infer undocumented business logic  
+
+---
+
+### Next Steps
+
+- Improve documentation richness while maintaining structure  
+- Support additional programming languages  
+- Add version-aware documentation updates  
+- Integrate into enterprise developer workflows  
+
+---
+
+## 🛠 Tech Stack
+
+- Python  
+- Streamlit  
+- OpenAI API  
+- JSON Schema  
+- AST Parsing  
+- LLM Pipeline Design  
+
+---
+
+## 🚀 Why This Project Matters
+
+This project demonstrates my ability to:
+
+- Build reliable, production-oriented AI systems  
+- Integrate LLMs with structured and deterministic pipelines  
+- Design systems that balance flexibility and robustness  
+- Apply generative AI to real-world productivity and automation problems  
+
+It reflects my focus on **building AI systems that are not just powerful, but reliable and usable in real-world environments**.

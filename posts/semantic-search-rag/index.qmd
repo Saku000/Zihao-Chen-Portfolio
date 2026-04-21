@@ -7,6 +7,10 @@ description: >
   Built a production-style semantic search engine for 100+ medical research papers, enhanced with a Retrieval-Augmented Generation pipeline for grounded question answering.
 ---
 
+[🔗 View Project on GitHub](https://github.com/Saku000/semantic-search-medlit)
+
+---
+
 ## The Problem
 
 Medical research papers are information-dense, terminology-heavy, and difficult to navigate with traditional keyword search alone. Users often need not just document retrieval, but grounded answers to natural-language questions based on relevant evidence.

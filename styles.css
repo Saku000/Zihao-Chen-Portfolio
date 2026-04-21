@@ -1,1 +1,457 @@
-/* Custom styles — add your own here */
+:root {
+    --bg: #070b14;
+    --text: #f1ecff;
+    --text-soft: #b7accf;
+    --violet: #c084fc;
+    --purple: #a855f7;
+    --purple-strong: #7c3aed;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.20), transparent 30%),
+        radial-gradient(circle at 80% 0%, rgba(192, 132, 252, 0.14), transparent 28%),
+        linear-gradient(180deg, #070b14 0%, #0b0a18 100%);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+/* ===== Page Load Animation ===== */
+body {
+    animation: pageFadeIn 0.9s ease-out;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* 通用上浮淡入 */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 通用轻微缩放淡入 */
+@keyframes softPop {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.navbar {
+    background: rgba(11, 10, 24, 0.78) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.16);
+    animation: none !important;
+    transform: none !important;
+}
+
+.navbar a,
+.navbar-brand {
+    color: var(--text) !important;
+}
+
+.navbar a:hover,
+.navbar-brand:hover {
+    color: var(--violet) !important;
+}
+
+body:has(.hero) main.content {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body:has(.hero) .quarto-title-block {
+    display: none !important;
+}
+
+/* ===== HERO ===== */
+.hero {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 18vh;
+    text-align: center;
+}
+
+.hero-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-title {
+    font-size: 110px;
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 0;
+
+    background: linear-gradient(90deg, #d8b4fe 0%, #c084fc 35%, #a855f7 65%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 20px rgba(168, 85, 247, 0.28),
+        0 0 40px rgba(124, 58, 237, 0.18);
+
+    animation: fadeUp 0.9s ease-out both;
+    animation-delay: 0.12s;
+}
+
+.subtitle {
+    margin-top: 28px;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--text-soft);
+    max-width: 760px;
+
+    animation: fadeUp 0.9s ease-out both;
+    animation-delay: 0.28s;
+}
+
+.buttons {
+    margin-top: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    width: 100%;
+
+    animation: fadeUp 0.9s ease-out both;
+    animation-delay: 0.42s;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    padding: 14px 30px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none !important;
+    color: white !important;
+    transition: all 0.25s ease;
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(192, 132, 252, 0.45);
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 0 0 1px rgba(168, 85, 247, 0.06),
+        0 10px 28px rgba(124, 58, 237, 0.18),
+        0 0 18px rgba(168, 85, 247, 0.16);
+}
+
+.btn.secondary:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(216, 180, 254, 0.75);
+    box-shadow:
+        0 0 0 1px rgba(216, 180, 254, 0.12),
+        0 16px 34px rgba(124, 58, 237, 0.24),
+        0 0 24px rgba(168, 85, 247, 0.24);
+    color: white !important;
+}
+
+a {
+    color: var(--violet);
+}
+
+a:hover {
+    color: #e9d5ff;
+}
+
+/* ===== About Page ===== */
+.quarto-about-jolla .about-entity {
+    background: linear-gradient(180deg, rgba(20, 16, 36, 0.96), rgba(12, 10, 24, 0.96));
+    border-radius: 22px;
+    border: 1px solid rgba(168, 85, 247, 0.16);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+
+    animation: softPop 0.9s ease-out both;
+    animation-delay: 0.12s;
+}
+
+/* About 页正文淡入 */
+.quarto-about-jolla .about-contents,
+.quarto-about-jolla .about-links {
+    animation: fadeUp 0.9s ease-out both;
+    animation-delay: 0.24s;
+}
+
+/* ===== Main Content Pages ===== */
+main.content>* {
+    animation: fadeUp 0.7s ease-out both;
+}
+
+main.content>*:nth-child(1) {
+    animation-delay: 0.08s;
+}
+
+main.content>*:nth-child(2) {
+    animation-delay: 0.16s;
+}
+
+main.content>*:nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+main.content>*:nth-child(4) {
+    animation-delay: 0.32s;
+}
+
+main.content>*:nth-child(5) {
+    animation-delay: 0.40s;
+}
+
+main.content>*:nth-child(6) {
+    animation-delay: 0.48s;
+}
+
+main.content>*:nth-child(7) {
+    animation-delay: 0.56s;
+}
+
+main.content>*:nth-child(8) {
+    animation-delay: 0.64s;
+}
+
+/* ===== Project Cards ===== */
+.project-card {
+    background: linear-gradient(145deg, rgba(20, 16, 36, 0.96), rgba(12, 10, 24, 0.96));
+    border-radius: 18px;
+    padding: 1.2rem;
+    border: 1px solid rgba(168, 85, 247, 0.14);
+    transition: all 0.25s ease;
+
+    animation: softPop 0.8s ease-out both;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(192, 132, 252, 0.42);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(168, 85, 247, 0.18);
+}
+
+/* ===== Reduced Motion Support ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .hero {
+        padding-top: 16vh;
+    }
+
+    .hero-title {
+        font-size: 72px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .btn {
+        min-width: 130px;
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-title {
+        font-size: 56px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 180px;
+    }
+}
+
+/* ===== About Me buttons unified to purple ===== */
+.about-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 10px 18px;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(192, 132, 252, 0.45) !important;
+    backdrop-filter: blur(10px);
+    color: white !important;
+    text-decoration: none !important;
+    box-shadow:
+        0 0 0 1px rgba(168, 85, 247, 0.05),
+        0 5px 12px rgba(124, 58, 237, 0.12),
+        0 0 8px rgba(168, 85, 247, 0.08);
+    transition: all 0.25s ease;
+}
+
+.about-link:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(216, 180, 254, 0.68) !important;
+    color: white !important;
+    box-shadow:
+        0 0 0 1px rgba(216, 180, 254, 0.10),
+        0 8px 16px rgba(124, 58, 237, 0.16),
+        0 0 10px rgba(168, 85, 247, 0.10);
+}
+
+.about-link .bi,
+.about-link i {
+    color: #d8b4fe !important;
+}
+
+.quarto-about-jolla .about-links {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+/* ===== Projects Grid ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+/* 卡片样式 */
+.project-card {
+    background: linear-gradient(145deg, rgba(20, 16, 36, 0.96), rgba(12, 10, 24, 0.96));
+    border: 1px solid rgba(168, 85, 247, 0.18);
+    border-radius: 22px;
+    padding: 26px 26px 22px 26px;
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.28),
+        0 0 18px rgba(168, 85, 247, 0.08);
+
+    /* 关键：让按钮能固定到底部 */
+    display: flex;
+    flex-direction: column;
+    min-height: 460px;
+}
+
+/* 卡片标题 */
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 2rem;
+    line-height: 1.15;
+    color: #f3e8ff;
+}
+
+/* 卡片正文 */
+.project-card p {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    max-width: 900px;
+}
+
+/* 按钮区域固定到底部 */
+.project-actions {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+/* 项目按钮尺寸 */
+.project-actions .btn.secondary {
+    min-width: 150px;
+
+    /* 光晕缩小 */
+    box-shadow:
+        0 0 0 1px rgba(168, 85, 247, 0.06),
+        0 6px 14px rgba(124, 58, 237, 0.14),
+        0 0 10px rgba(168, 85, 247, 0.10);
+}
+
+.project-actions .btn.secondary:hover {
+    box-shadow:
+        0 0 0 1px rgba(216, 180, 254, 0.10),
+        0 10px 20px rgba(124, 58, 237, 0.18),
+        0 0 14px rgba(168, 85, 247, 0.14);
+}
+
+/* hover 更有质感 */
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(192, 132, 252, 0.38);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.36),
+        0 0 24px rgba(168, 85, 247, 0.14);
+}
+
+/* 宽屏可做双列 */
+@media (min-width: 1100px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 隐藏标题右侧的小链条锚点图标 */
+.anchorjs-link,
+.header-anchor,
+.anchor {
+    display: none !important;
+}
