@@ -271,28 +271,11 @@
       window.addEventListener('pointermove', function (e) {
         if (!isDragging) return;
         var rect = area.getBoundingClientRect();
-        var newX = e.clientX - rect.left - dragOff.x;
-        var newY = e.clientY - rect.top - dragOff.y;
-
-        // Dynamically add segments so the rope stretches as far as needed
-        var anchor = particles[0];
-        var dx = newX - anchor.x;
-        var dy = newY - anchor.y;
-        var dist = Math.sqrt(dx * dx + dy * dy);
-        while (dist > segLen * (particles.length - 1)) {
-          var n = particles.length;
-          var prev = particles[n - 2];
-          particles.splice(n - 1, 0, {
-            x: prev.x, y: prev.y,
-            prevX: prev.x, prevY: prev.y
-          });
-        }
-
         var last = particles[particles.length - 1];
-        last.x = newX;
-        last.y = newY;
-        last.prevX = newX;
-        last.prevY = newY;
+        last.x = e.clientX - rect.left - dragOff.x;
+        last.y = e.clientY - rect.top - dragOff.y;
+        last.prevX = last.x;
+        last.prevY = last.y;
       });
 
       window.addEventListener('pointerup', function () {
