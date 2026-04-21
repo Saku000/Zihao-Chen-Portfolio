@@ -1,0 +1,23 @@
+---
+title: ""
+format:
+  html:
+    page-layout: full
+---
+
+::: {.hero}
+::: {.hero-inner}
+::: {.hero-title}
+Zihao Chen
+:::
+
+::: {.subtitle}
+Data Analyst · AI Builder · Problem Solver
+:::
+
+::: {.buttons}
+[Projects](portfolio.qmd){.btn .secondary}
+[About Me](about.qmd){.btn .secondary}
+:::
+:::
+:::

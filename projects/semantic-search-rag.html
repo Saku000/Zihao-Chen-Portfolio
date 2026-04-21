@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Search &amp; RAG &mdash; Zihao Chen</title>
+  <meta name="description" content="Semantic search engine for 100+ medical research papers with RAG-powered question answering.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner container">
+      <a href="/" class="nav-logo">Zihao Chen</a>
+      <div class="nav-links">
+        <a href="/#projects">Projects</a>
+        <a href="/#about">About</a>
+        <a href="https://www.linkedin.com/in/zihaochen-2243b3375/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://github.com/Saku000" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <article class="project-detail container">
+      <a href="/" class="back-link">&larr; Back</a>
+
+      <header>
+        <h1>Semantic Search &amp; RAG for Medical Literature</h1>
+        <div class="project-meta">
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Sentence Transformers</span>
+            <span class="tag">OpenAI API</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">PyMuPDF</span>
+            <span class="tag">NumPy</span>
+          </div>
+        </div>
+      </header>
+
+      <h2>The Problem</h2>
+      <p>Medical research papers are information-dense and terminology-heavy. Traditional keyword search falls short when users need not just document retrieval, but grounded answers to natural-language questions based on relevant evidence across a large corpus.</p>
+
+      <h2>Approach</h2>
+      <p>I designed and built an end-to-end NLP pipeline with a modular architecture:</p>
+      <ul>
+        <li><strong>PDF extraction</strong> &mdash; text extraction and cleaning from 100+ medical research papers</li>
+        <li><strong>Paragraph-based chunking</strong> &mdash; preserving semantic coherence with length-bounded chunks</li>
+        <li><strong>Dense embeddings</strong> &mdash; SentenceTransformer embeddings with cosine-similarity retrieval</li>
+        <li><strong>RAG generation</strong> &mdash; optional answer generation via OpenAI with strict prompting constraints to reduce hallucination</li>
+        <li><strong>Retrieval tuning</strong> &mdash; doc-level deduplication and keyword prefilter with fallback for improved precision</li>
+        <li><strong>Interfaces</strong> &mdash; both CLI and Streamlit web app</li>
+      </ul>
+
+      <h2>Results</h2>
+      <ul>
+        <li>Semantic search over 100+ medical papers with top-K dense retrieval</li>
+        <li>Natural-language question answering grounded in source evidence</li>
+        <li>Doc-level deduplication improved evidence diversity across results</li>
+        <li>Keyword prefilter improved precision for heterogeneous biomedical topics</li>
+      </ul>
+
+      <h2>Reflections</h2>
+      <p>This project deepened my understanding of the trade-offs between retrieval quality, chunk granularity, and answer grounding. The paragraph-level chunking approach balanced coherence and retrieval precision well. Future work could include biomedical-specific embedding models like PubMedBERT, cross-encoder reranking, and page-level citation linking.</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/zihaochen-2243b3375/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Saku000" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p>&copy; 2026 Zihao Chen</p>
+    </div>
+  </footer>
+
+</body>
+</html>
