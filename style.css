@@ -561,12 +561,12 @@ a {
   font-size: 0.9375rem;
   font-family: var(--font);
   text-decoration: none;
-  color: var(--text-secondary);
+  color: var(--text-secondary) !important;
   transition: all 0.2s ease;
 }
 
 .btn-github:hover {
   background: #111;
-  color: var(--text);
+  color: var(--text) !important;
   border-color: #111;
 }
