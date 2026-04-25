@@ -58,11 +58,13 @@
 
       <h2>Presentation Slides</h2>
       <div class="slides-viewer">
-        <canvas id="pdf-canvas"></canvas>
+        <div class="slides-img-wrap">
+          <img id="slide-img" src="slides/slide-01.jpg" alt="Slide 1">
+        </div>
         <div class="slides-controls">
           <button id="prev-page" disabled>&larr;</button>
-          <span id="page-info">— / —</span>
-          <button id="next-page" disabled>&rarr;</button>
+          <span id="page-info">1 / 16</span>
+          <button id="next-page">&rarr;</button>
         </div>
       </div>
 
@@ -152,7 +154,11 @@
       overflow: hidden;
     }
 
-    #pdf-canvas {
+    .slides-img-wrap {
+      overflow: hidden;
+    }
+
+    #slide-img {
       display: block;
       width: 100%;
       height: auto;
@@ -168,8 +174,8 @@
       to   { transform: translateX(0);     opacity: 1; }
     }
 
-    #pdf-canvas.anim-next { animation: slideInRight 0.25s ease; }
-    #pdf-canvas.anim-prev { animation: slideInLeft  0.25s ease; }
+    #slide-img.anim-next { animation: slideInRight 0.2s ease; }
+    #slide-img.anim-prev { animation: slideInLeft  0.2s ease; }
 
     .slides-controls {
       display: flex;
@@ -210,77 +216,45 @@
     }
   </style>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
     (function () {
-      var pdfjsLib = window['pdfjs-dist/build/pdf'];
-      pdfjsLib.GlobalWorkerOptions.workerSrc =
-        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-      var canvas = document.getElementById('pdf-canvas');
-      var ctx = canvas.getContext('2d');
+      var TOTAL = 16;
+      var current = 1;
+      var img = document.getElementById('slide-img');
       var prevBtn = document.getElementById('prev-page');
       var nextBtn = document.getElementById('next-page');
       var pageInfo = document.getElementById('page-info');
 
-      var pdfDoc = null;
-      var currentPage = 1;
-      var cache = {};
+      function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
-      function getRendered(num) {
-        if (cache[num]) return cache[num];
-        var promise = pdfDoc.getPage(num).then(function (page) {
-          var scale = canvas.offsetWidth / page.getViewport({ scale: 1 }).width;
-          var viewport = page.getViewport({ scale: scale });
-          var offscreen = document.createElement('canvas');
-          offscreen.width = viewport.width;
-          offscreen.height = viewport.height;
-          return page.render({ canvasContext: offscreen.getContext('2d'), viewport: viewport }).promise.then(function () {
-            return offscreen;
-          });
-        });
-        cache[num] = promise;
-        return promise;
+      function preload(n) {
+        if (n < 1 || n > TOTAL) return;
+        var pre = new Image();
+        pre.src = 'slides/slide-' + pad(n) + '.jpg';
       }
 
-      function preload(num) {
-        if (num >= 1 && num <= pdfDoc.numPages && !cache[num]) getRendered(num);
+      function showSlide(n, direction) {
+        img.classList.remove('anim-next', 'anim-prev');
+        void img.offsetWidth;
+        img.src = 'slides/slide-' + pad(n) + '.jpg';
+        img.alt = 'Slide ' + n;
+        if (direction) img.classList.add(direction === 1 ? 'anim-next' : 'anim-prev');
+        pageInfo.textContent = n + ' / ' + TOTAL;
+        prevBtn.disabled = n <= 1;
+        nextBtn.disabled = n >= TOTAL;
+        preload(n + 1);
+        preload(n - 1);
       }
-
-      function showPage(num, direction) {
-        getRendered(num).then(function (offscreen) {
-          canvas.width = offscreen.width;
-          canvas.height = offscreen.height;
-          ctx.drawImage(offscreen, 0, 0);
-          if (direction) {
-            canvas.classList.remove('anim-next', 'anim-prev');
-            void canvas.offsetWidth;
-            canvas.classList.add(direction === 1 ? 'anim-next' : 'anim-prev');
-          }
-          pageInfo.textContent = num + ' / ' + pdfDoc.numPages;
-          prevBtn.disabled = num <= 1;
-          nextBtn.disabled = num >= pdfDoc.numPages;
-          preload(num + 1);
-          preload(num - 1);
-        });
-      }
-
-      pdfjsLib.getDocument('slides.pdf').promise.then(function (pdf) {
-        pdfDoc = pdf;
-        prevBtn.disabled = true;
-        nextBtn.disabled = pdf.numPages <= 1;
-        showPage(1, 0);
-      });
 
       prevBtn.addEventListener('click', function () {
-        if (currentPage > 1) { currentPage--; showPage(currentPage, -1); }
+        if (current > 1) { current--; showSlide(current, -1); }
       });
 
       nextBtn.addEventListener('click', function () {
-        if (currentPage < pdfDoc.numPages) { currentPage++; showPage(currentPage, 1); }
+        if (current < TOTAL) { current++; showSlide(current, 1); }
       });
 
-      window.addEventListener('resize', function () { cache = {}; showPage(currentPage, 0); });
+      preload(2);
     })();
   </script>
 
