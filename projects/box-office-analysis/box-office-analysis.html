@@ -56,18 +56,6 @@
         </div>
       </header>
 
-      <h2>Presentation Slides</h2>
-      <div class="slides-viewer">
-        <div class="slides-img-wrap">
-          <img id="slide-img" src="slides/slide-01.jpg" alt="Slide 1">
-        </div>
-        <div class="slides-controls">
-          <button id="prev-page" disabled>&larr;</button>
-          <span id="page-info">1 / 16</span>
-          <button id="next-page">&rarr;</button>
-        </div>
-      </div>
-
       <h2>The Problem</h2>
       <p>In 2024, global box office gross reached nearly $25 billion &mdash; yet financial success remains deeply
         uneven. Producers and investors face a persistent strategic dilemma: should they allocate resources toward bigger
@@ -127,6 +115,18 @@
         rating, Sci-Fi genre) would generate <strong>$1.25B in global revenue</strong> with a
         <strong>400% ROI</strong>.</p>
 
+      <h2>Presentation Slides</h2>
+      <div class="slides-viewer">
+        <div class="slides-img-wrap">
+          <img id="slide-img" src="slides/slide-01.jpg" alt="Slide 1" class="zoomable">
+        </div>
+        <div class="slides-controls">
+          <button id="prev-page" disabled>&larr;</button>
+          <span id="page-info">1 / 16</span>
+          <button id="next-page">&rarr;</button>
+        </div>
+      </div>
+
       <h2>Reflections</h2>
       <p>The most counterintuitive finding was that Horror outperforms Blockbusters on ROI despite a fraction of the
         budget &mdash; reframing genre selection from a creative decision into a capital allocation strategy. The project
@@ -145,7 +145,80 @@
     </div>
   </footer>
 
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&larr;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightbox-next">&rarr;</button>
+  </div>
+
   <style>
+    .zoomable { cursor: zoom-in; }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      animation: lbFadeIn 0.2s ease;
+    }
+
+    @keyframes lbFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.15s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    .lightbox-nav {
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      padding: 1rem 0.8rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .lightbox-nav:hover:not(:disabled) { background: rgba(255,255,255,0.3); }
+    .lightbox-nav:disabled { opacity: 0.25; cursor: default; }
+
     .slides-viewer {
       margin: 1.5rem 0 2rem;
       background: #f5f5f5;
@@ -218,12 +291,19 @@
 
   <script>
     (function () {
-      var TOTAL = 16;
+      var TOTAL   = 16;
       var current = 1;
-      var img = document.getElementById('slide-img');
-      var prevBtn = document.getElementById('prev-page');
-      var nextBtn = document.getElementById('next-page');
+
+      var img      = document.getElementById('slide-img');
+      var prevBtn  = document.getElementById('prev-page');
+      var nextBtn  = document.getElementById('next-page');
       var pageInfo = document.getElementById('page-info');
+
+      var lb      = document.getElementById('lightbox');
+      var lbImg   = document.getElementById('lightbox-img');
+      var lbClose = document.getElementById('lightbox-close');
+      var lbPrev  = document.getElementById('lightbox-prev');
+      var lbNext  = document.getElementById('lightbox-next');
 
       function pad(n) { return n < 10 ? '0' + n : '' + n; }
 
@@ -234,24 +314,42 @@
       }
 
       function showSlide(n, direction) {
+        var src = 'slides/slide-' + pad(n) + '.jpg';
         img.classList.remove('anim-next', 'anim-prev');
         void img.offsetWidth;
-        img.src = 'slides/slide-' + pad(n) + '.jpg';
+        img.src = src;
         img.alt = 'Slide ' + n;
         if (direction) img.classList.add(direction === 1 ? 'anim-next' : 'anim-prev');
         pageInfo.textContent = n + ' / ' + TOTAL;
-        prevBtn.disabled = n <= 1;
-        nextBtn.disabled = n >= TOTAL;
+        prevBtn.disabled  = n <= 1;
+        nextBtn.disabled  = n >= TOTAL;
+        lbPrev.disabled   = n <= 1;
+        lbNext.disabled   = n >= TOTAL;
+        if (lb.classList.contains('is-open')) lbImg.src = src;
         preload(n + 1);
         preload(n - 1);
       }
 
-      prevBtn.addEventListener('click', function () {
-        if (current > 1) { current--; showSlide(current, -1); }
+      prevBtn.addEventListener('click',  function () { if (current > 1)     showSlide(--current, -1); });
+      nextBtn.addEventListener('click',  function () { if (current < TOTAL) showSlide(++current,  1); });
+      lbPrev.addEventListener('click',   function () { if (current > 1)     showSlide(--current, -1); });
+      lbNext.addEventListener('click',   function () { if (current < TOTAL) showSlide(++current,  1); });
+
+      img.addEventListener('click', function () {
+        lbImg.src = img.src;
+        lbPrev.disabled = current <= 1;
+        lbNext.disabled = current >= TOTAL;
+        lb.classList.add('is-open');
       });
 
-      nextBtn.addEventListener('click', function () {
-        if (current < TOTAL) { current++; showSlide(current, 1); }
+      function close() { lb.classList.remove('is-open'); }
+      lbClose.addEventListener('click', close);
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('is-open')) return;
+        if (e.key === 'Escape')      close();
+        if (e.key === 'ArrowLeft'  && current > 1)     showSlide(--current, -1);
+        if (e.key === 'ArrowRight' && current < TOTAL) showSlide(++current,  1);
       });
 
       preload(2);
