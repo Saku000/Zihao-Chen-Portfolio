@@ -82,6 +82,21 @@
         <li><strong>Interfaces</strong> &mdash; both CLI and Streamlit web app</li>
       </ul>
 
+      <h2>Demo</h2>
+      <div class="demo-slideshow">
+        <div class="demo-slide-wrap">
+          <img id="demo-img" src="demo-pics/1.png" alt="Semantic Search" class="zoomable">
+        </div>
+        <div class="demo-footer">
+          <button id="demo-prev" disabled>&larr;</button>
+          <div class="demo-caption">
+            <span class="demo-title" id="demo-title">Semantic Search</span>
+            <span class="demo-counter" id="demo-counter">1 / 2</span>
+          </div>
+          <button id="demo-next">&rarr;</button>
+        </div>
+      </div>
+
       <h2>Results</h2>
       <ul>
         <li>Semantic search over 100+ medical papers with top-K dense retrieval</li>
@@ -107,6 +122,216 @@
       <p>&copy; 2026 Zihao Chen</p>
     </div>
   </footer>
+
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&larr;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightbox-next">&rarr;</button>
+  </div>
+
+  <style>
+    .zoomable { cursor: zoom-in; }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      animation: lbFadeIn 0.2s ease;
+    }
+
+    @keyframes lbFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.15s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    .lightbox-nav {
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      padding: 1rem 0.8rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .lightbox-nav:hover:not(:disabled) { background: rgba(255,255,255,0.3); }
+    .lightbox-nav:disabled { opacity: 0.25; cursor: default; }
+
+    .demo-slideshow {
+      margin: 1.5rem 0 2rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f5f5f5;
+      max-width: 480px;
+    }
+
+    .demo-slide-wrap {
+      overflow: hidden;
+      height: 420px;
+    }
+
+    #demo-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    @keyframes demoSlideRight {
+      from { transform: translateX(40px); opacity: 0; }
+      to   { transform: translateX(0);   opacity: 1; }
+    }
+
+    @keyframes demoSlideLeft {
+      from { transform: translateX(-40px); opacity: 0; }
+      to   { transform: translateX(0);     opacity: 1; }
+    }
+
+    #demo-img.anim-next { animation: demoSlideRight 0.2s ease; }
+    #demo-img.anim-prev { animation: demoSlideLeft  0.2s ease; }
+
+    .demo-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      background: #fff;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .demo-footer button {
+      background: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      color: inherit;
+      flex-shrink: 0;
+    }
+
+    .demo-footer button:hover:not(:disabled) { background: #f0f0f0; border-color: #999; }
+    .demo-footer button:disabled { opacity: 0.35; cursor: default; }
+    .demo-caption {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.1rem;
+    }
+
+    .demo-title   { font-size: 0.9rem; font-weight: 600; color: #1a1a1a; }
+    .demo-counter { font-size: 0.75rem; color: #999; }
+  </style>
+
+  <script>
+    (function () {
+      var slides = [
+        { src: 'demo-pics/1.png', alt: 'Semantic Search', title: 'Semantic Search' },
+        { src: 'demo-pics/2.png', alt: 'RAG Answer',      title: 'RAG Answer' }
+      ];
+      var current = 0;
+
+      var img     = document.getElementById('demo-img');
+      var prev    = document.getElementById('demo-prev');
+      var next    = document.getElementById('demo-next');
+      var title   = document.getElementById('demo-title');
+      var counter = document.getElementById('demo-counter');
+
+      var lb      = document.getElementById('lightbox');
+      var lbImg   = document.getElementById('lightbox-img');
+      var lbClose = document.getElementById('lightbox-close');
+      var lbPrev  = document.getElementById('lightbox-prev');
+      var lbNext  = document.getElementById('lightbox-next');
+
+      function preload(i) {
+        if (i >= 0 && i < slides.length) { var p = new Image(); p.src = slides[i].src; }
+      }
+
+      function show(i, dir) {
+        img.classList.remove('anim-next', 'anim-prev');
+        void img.offsetWidth;
+        img.src = slides[i].src;
+        img.alt = slides[i].alt;
+        if (dir) img.classList.add(dir === 1 ? 'anim-next' : 'anim-prev');
+        title.textContent   = slides[i].title;
+        counter.textContent = (i + 1) + ' / ' + slides.length;
+        prev.disabled   = i === 0;
+        next.disabled   = i === slides.length - 1;
+        lbPrev.disabled = i === 0;
+        lbNext.disabled = i === slides.length - 1;
+        if (lb.classList.contains('is-open')) lbImg.src = slides[i].src;
+        preload(i + 1);
+        preload(i - 1);
+      }
+
+      prev.addEventListener('click',   function () { if (current > 0)               show(--current, -1); });
+      next.addEventListener('click',   function () { if (current < slides.length-1) show(++current,  1); });
+      lbPrev.addEventListener('click', function () { if (current > 0)               show(--current, -1); });
+      lbNext.addEventListener('click', function () { if (current < slides.length-1) show(++current,  1); });
+
+      img.addEventListener('click', function () {
+        lbImg.src = slides[current].src;
+        lbPrev.disabled = current === 0;
+        lbNext.disabled = current === slides.length - 1;
+        lb.classList.add('is-open');
+      });
+
+      function close() { lb.classList.remove('is-open'); }
+      lbClose.addEventListener('click', close);
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('is-open')) return;
+        if (e.key === 'Escape')      close();
+        if (e.key === 'ArrowLeft'  && current > 0)               show(--current, -1);
+        if (e.key === 'ArrowRight' && current < slides.length-1) show(++current,  1);
+      });
+
+      preload(1);
+    })();
+  </script>
 
 </body>
 
