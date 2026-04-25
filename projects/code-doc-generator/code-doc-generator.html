@@ -103,7 +103,9 @@
             <h2>Demo</h2>
             <div class="demo-slideshow">
                 <div class="demo-slide-wrap">
+                    <img class="slide-side-frame" id="demo-prev-frame" src="" alt="">
                     <img id="demo-img" src="demo-pics/1.png" alt="Generated Output" class="zoomable">
+                    <img class="slide-side-frame" id="demo-next-frame" src="" alt="">
                 </div>
                 <div class="demo-footer">
                     <button id="demo-prev" disabled>&larr;</button>
@@ -204,6 +206,7 @@
       display: block;
       touch-action: none;
       user-select: none;
+      cursor: grab;
     }
 
     .lightbox-close {
@@ -262,7 +265,20 @@
     .demo-slide-wrap {
       overflow: hidden;
       height: 420px;
+      position: relative;
     }
+
+    .slide-side-frame {
+      position: absolute;
+      top: 0; width: 100%; height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+      pointer-events: none;
+    }
+
+    #demo-prev-frame { right: 100%; }
+    #demo-next-frame { left: 100%; }
 
     #demo-img {
       display: block;
@@ -272,6 +288,7 @@
       object-position: top;
       touch-action: pan-y;
       user-select: none;
+      cursor: grab;
     }
 
     @keyframes demoSlideRight {
@@ -335,11 +352,13 @@
       var next    = document.getElementById('demo-next');
       var counter = document.getElementById('demo-counter');
 
-      var lb      = document.getElementById('lightbox');
-      var lbImg   = document.getElementById('lightbox-img');
-      var lbClose = document.getElementById('lightbox-close');
-      var lbPrev  = document.getElementById('lightbox-prev');
-      var lbNext  = document.getElementById('lightbox-next');
+      var lb        = document.getElementById('lightbox');
+      var lbImg     = document.getElementById('lightbox-img');
+      var lbClose   = document.getElementById('lightbox-close');
+      var lbPrev    = document.getElementById('lightbox-prev');
+      var lbNext    = document.getElementById('lightbox-next');
+      var prevFrame = document.getElementById('demo-prev-frame');
+      var nextFrame = document.getElementById('demo-next-frame');
 
       function preload(i) {
         if (i >= 0 && i < slides.length) { var p = new Image(); p.src = slides[i].src; }
@@ -357,6 +376,8 @@
         lbPrev.disabled = i === 0;
         lbNext.disabled = i === slides.length - 1;
         if (lb.classList.contains('is-open')) lbImg.src = slides[i].src;
+        prevFrame.src = i > 0 ? slides[i - 1].src : '';
+        nextFrame.src = i < slides.length - 1 ? slides[i + 1].src : '';
         preload(i + 1);
         preload(i - 1);
       }
@@ -366,11 +387,42 @@
       lbPrev.addEventListener('click', function () { if (current > 0)               show(--current, -1); });
       lbNext.addEventListener('click', function () { if (current < slides.length-1) show(++current,  1); });
 
-      var imgPtrX = 0;
+      function resetFrames() {
+        img.style.transform = '';
+        prevFrame.style.transform = '';
+        nextFrame.style.transform = '';
+      }
+      function snapFramesBack() {
+        var t = 'transform 0.25s ease';
+        img.style.transition = t; img.style.transform = 'translateX(0)';
+        prevFrame.style.transition = t; prevFrame.style.transform = 'translateX(0)';
+        nextFrame.style.transition = t; nextFrame.style.transform = 'translateX(0)';
+        setTimeout(function() {
+          img.style.transition = ''; img.style.transform = '';
+          prevFrame.style.transition = ''; prevFrame.style.transform = '';
+          nextFrame.style.transition = ''; nextFrame.style.transform = '';
+        }, 260);
+      }
+
+      var imgDrag = false, imgPX = 0, imgDX = 0;
       img.addEventListener('dragstart', function(e) { e.preventDefault(); });
-      img.addEventListener('pointerdown', function(e) { imgPtrX = e.clientX; });
+      img.addEventListener('pointerdown', function(e) {
+        imgDrag = true; imgPX = e.clientX; imgDX = 0;
+        img.setPointerCapture(e.pointerId);
+        img.classList.remove('anim-next', 'anim-prev');
+        img.style.cursor = 'grabbing';
+      });
+      img.addEventListener('pointermove', function(e) {
+        if (!imgDrag) return;
+        imgDX = e.clientX - imgPX;
+        img.style.transform = 'translateX(' + imgDX + 'px)';
+        prevFrame.style.transform = 'translateX(' + imgDX + 'px)';
+        nextFrame.style.transform = 'translateX(' + imgDX + 'px)';
+      });
       img.addEventListener('pointerup', function(e) {
-        var dx = e.clientX - imgPtrX;
+        if (!imgDrag) return;
+        imgDrag = false; img.style.cursor = '';
+        var dx = imgDX; resetFrames();
         if (dx > 50 && current > 0) { show(--current, -1); }
         else if (dx < -50 && current < slides.length - 1) { show(++current, 1); }
         else if (Math.abs(dx) < 10) {
@@ -378,16 +430,59 @@
           lbPrev.disabled = current === 0;
           lbNext.disabled = current === slides.length - 1;
           lb.classList.add('is-open');
-        }
+        } else { snapFramesBack(); }
+      });
+      img.addEventListener('pointercancel', function() {
+        imgDrag = false; img.style.cursor = ''; snapFramesBack();
       });
 
-      var lbPtrX = 0;
+      var lbDrag = false, lbPX = 0, lbDX = 0;
       lbImg.addEventListener('dragstart', function(e) { e.preventDefault(); });
-      lbImg.addEventListener('pointerdown', function(e) { lbPtrX = e.clientX; });
+      lbImg.addEventListener('pointerdown', function(e) {
+        lbDrag = true; lbPX = e.clientX; lbDX = 0;
+        lbImg.setPointerCapture(e.pointerId);
+        lbImg.style.cursor = 'grabbing';
+      });
+      lbImg.addEventListener('pointermove', function(e) {
+        if (!lbDrag) return;
+        lbDX = e.clientX - lbPX;
+        var halfW = lb.offsetWidth / 2 || 300;
+        lbImg.style.transform = 'translateX(' + lbDX + 'px)';
+        lbImg.style.opacity = String(Math.max(0.25, 1 - Math.abs(lbDX) / halfW));
+      });
+      function lbNavFade(newDir, updateFn) {
+        lbImg.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+        lbImg.style.opacity = '0';
+        lbImg.style.transform = 'translateX(' + (newDir > 0 ? 40 : -40) + 'px)';
+        setTimeout(function() {
+          lbImg.style.transition = 'none';
+          lbImg.style.transform = ''; lbImg.style.opacity = '0';
+          updateFn();
+          void lbImg.offsetWidth;
+          lbImg.style.transition = 'opacity 0.2s ease';
+          lbImg.style.opacity = '1';
+          setTimeout(function() { lbImg.style.transition = ''; lbImg.style.opacity = ''; }, 220);
+        }, 150);
+      }
       lbImg.addEventListener('pointerup', function(e) {
-        var dx = e.clientX - lbPtrX;
-        if (dx > 50 && current > 0) show(--current, -1);
-        else if (dx < -50 && current < slides.length - 1) show(++current, 1);
+        if (!lbDrag) return;
+        lbDrag = false; lbImg.style.cursor = '';
+        var dx = lbDX;
+        if (dx > 50 && current > 0) {
+          lbNavFade(1, function() { show(--current, -1); });
+        } else if (dx < -50 && current < slides.length - 1) {
+          lbNavFade(-1, function() { show(++current, 1); });
+        } else {
+          lbImg.style.transition = 'opacity 0.2s ease, transform 0.25s ease';
+          lbImg.style.opacity = '1'; lbImg.style.transform = 'translateX(0)';
+          setTimeout(function() { lbImg.style.transition = ''; lbImg.style.opacity = ''; lbImg.style.transform = ''; }, 260);
+        }
+      });
+      lbImg.addEventListener('pointercancel', function() {
+        lbDrag = false; lbImg.style.cursor = '';
+        lbImg.style.transition = 'opacity 0.2s ease, transform 0.25s ease';
+        lbImg.style.opacity = '1'; lbImg.style.transform = 'translateX(0)';
+        setTimeout(function() { lbImg.style.transition = ''; lbImg.style.opacity = ''; lbImg.style.transform = ''; }, 260);
       });
 
       function close() { lb.classList.remove('is-open'); }
@@ -400,6 +495,7 @@
         if (e.key === 'ArrowRight' && current < slides.length-1) show(++current,  1);
       });
 
+      nextFrame.src = slides[1].src;
       preload(1);
     })();
   </script>
