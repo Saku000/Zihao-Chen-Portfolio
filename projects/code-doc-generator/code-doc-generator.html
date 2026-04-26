@@ -190,6 +190,7 @@
       flex-direction: row;
       gap: 1rem;
       animation: lbFadeIn 0.2s ease;
+      touch-action: none;
     }
 
     @keyframes lbFadeIn {
@@ -430,6 +431,7 @@
           lbPrev.disabled = current === 0;
           lbNext.disabled = current === slides.length - 1;
           lb.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
         } else { snapFramesBack(); }
       });
       img.addEventListener('pointercancel', function() {
@@ -485,7 +487,7 @@
         setTimeout(function() { lbImg.style.transition = ''; lbImg.style.opacity = ''; lbImg.style.transform = ''; }, 260);
       });
 
-      function close() { lb.classList.remove('is-open'); }
+      function close() { lb.classList.remove('is-open'); document.body.style.overflow = ''; }
       lbClose.addEventListener('click', close);
       lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
       document.addEventListener('keydown', function (e) {
