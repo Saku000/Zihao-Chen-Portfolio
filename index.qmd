@@ -8,7 +8,7 @@ format:
 ::: {.hero}
 ::: {.hero-inner}
 ::: {.hero-title}
-Zihao Chen
+Zihao Chen 陈子豪
 :::
 
 ::: {.subtitle}
