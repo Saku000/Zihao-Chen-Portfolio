@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skin Cancer Detection &mdash; Zihao Chen</title>
+  <meta name="description" content="AI-powered skin lesion screening application using Gemini Vision and FastAPI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner container">
+      <a href="/Zihao-Chen-Portfolio/" class="nav-logo">Zihao Chen</a>
+      <div class="nav-links">
+        <a href="/Zihao-Chen-Portfolio/#projects">Projects</a>
+        <a href="/Zihao-Chen-Portfolio/#about">About</a>
+        <a href="https://www.linkedin.com/in/zihaochen-2243b3375/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+        <a href="https://github.com/Saku000" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <article class="project-detail container">
+      <a href="/Zihao-Chen-Portfolio/" class="back-link">&larr; Back</a>
+
+      <header>
+        <h1>Skin Cancer Detection</h1>
+        <div class="project-meta">
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Gemini Vision</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">HTML/CSS/JS</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Saku000/Skin-Cancer-Detect" target="_blank" rel="noopener" class="btn-github">
+            View on GitHub
+          </a>
+        </div>
+      </header>
+
+      <h2>The Problem</h2>
+      <p>Skin lesion images can be difficult for non-specialists to interpret, especially when users are unsure whether
+        a spot may require medical attention. This project explores how AI vision models can support early screening by
+        providing structured risk estimates, image-quality feedback, and clear follow-up guidance.</p>
+
+      <h2>Approach</h2>
+      <p>I built an AI-powered skin lesion screening application with a FastAPI backend and a custom web interface:</p>
+      <ul>
+        <li><strong>Image analysis</strong> &mdash; used Gemini Vision to analyze dermoscopy or clinical skin lesion
+          images</li>
+        <li><strong>Risk estimation</strong> &mdash; estimated malignancy risk across melanoma, basal cell carcinoma,
+          and actinic keratosis / squamous cell carcinoma</li>
+        <li><strong>Multi-run inference</strong> &mdash; aggregated repeated model outputs to improve result
+          stability</li>
+        <li><strong>Quality control</strong> &mdash; added lighting and framing checks to reject unreliable images</li>
+        <li><strong>Web interface</strong> &mdash; built a custom HTML/CSS/JavaScript frontend served through FastAPI
+          static files</li>
+        <li><strong>User support</strong> &mdash; added AI-generated summaries, chatbot guidance, and nearby medical
+          facility lookup using OpenStreetMap / Overpass API</li>
+      </ul>
+
+      <h2>Results</h2>
+      <ul>
+        <li>Built a working end-to-end system connecting image upload, FastAPI endpoints, Gemini Vision analysis, and
+          frontend visualization</li>
+        <li>Generated risk levels based on malignant class probabilities for three skin cancer-related categories</li>
+        <li>Added image-quality gating to reduce unreliable predictions from poor lighting or framing</li>
+        <li>Created an interactive user experience with probability display, result summaries, chatbot support, and
+          nearby facility search</li>
+      </ul>
+
+      <h2>Reflections</h2>
+      <p>This project helped me better understand how to design AI applications for sensitive healthcare-adjacent use
+        cases. The main challenge was not only generating model outputs, but also making the system safer and more
+        useful through quality checks, clear risk communication, and reminders that the tool is for research and
+        educational purposes rather than medical diagnosis.</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/zihaochen-2243b3375/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Saku000" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p>&copy; 2026 Zihao Chen</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
