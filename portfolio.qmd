@@ -63,6 +63,6 @@ I am actively exploring opportunities in:
 ## Connect with Me
 
 ::: {.project-actions}
-[LinkedIn](https://www.linkedin.com/in/zihaochen-2243b3375/){.btn .secondary}
+[LinkedIn](https://www.linkedin.com/in/zihaochen02/){.btn .secondary}
 [GitHub](https://github.com/Saku000){.btn .secondary}
 :::

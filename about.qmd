@@ -6,7 +6,7 @@ about:
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/zihaochen-2243b3375/
+      href: https://www.linkedin.com/in/zihaochen02/
     - icon: github
       text: GitHub
       href: https://github.com/Saku000
