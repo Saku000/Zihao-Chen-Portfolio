@@ -82,6 +82,23 @@
           facility lookup using OpenStreetMap / Overpass API</li>
       </ul>
 
+      <h2>Demo</h2>
+      <div class="demo-slideshow">
+        <div class="demo-slide-wrap">
+          <img class="slide-side-frame" id="demo-prev-frame" src="" alt="">
+          <img id="demo-img" src="demo-pics/1.png" alt="Image Upload" class="zoomable">
+          <img class="slide-side-frame" id="demo-next-frame" src="" alt="">
+        </div>
+        <div class="demo-footer">
+          <button id="demo-prev" disabled>&larr;</button>
+          <div class="demo-caption">
+            <span class="demo-title" id="demo-title">Image Upload</span>
+            <span class="demo-counter" id="demo-counter">1 / 3</span>
+          </div>
+          <button id="demo-next">&rarr;</button>
+        </div>
+      </div>
+
       <h2>Results</h2>
       <ul>
         <li>Built a working end-to-end system connecting image upload, FastAPI endpoints, Gemini Vision analysis, and
@@ -99,6 +116,360 @@
         educational purposes rather than medical diagnosis.</p>
     </article>
   </main>
+
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&larr;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightbox-next">&rarr;</button>
+  </div>
+
+  <style>
+    .zoomable { cursor: zoom-in; }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      animation: lbFadeIn 0.2s ease;
+      touch-action: none;
+    }
+
+    @keyframes lbFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 6px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      object-fit: contain;
+      display: block;
+      touch-action: none;
+      user-select: none;
+      cursor: grab;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.15s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    .lightbox-nav {
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      padding: 1rem 0.8rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .lightbox-nav:hover:not(:disabled) { background: rgba(255,255,255,0.3); }
+    .lightbox-nav:disabled { opacity: 0.25; cursor: default; }
+
+    @media (max-width: 600px) {
+      .lightbox.is-open {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .lightbox-img { order: 1; flex-basis: 100%; max-height: 70vh; }
+      .lightbox-prev { order: 2; }
+      .lightbox-next { order: 3; }
+    }
+
+    .demo-slideshow {
+      margin: 1.5rem 0 2rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f5f5f5;
+      max-width: 480px;
+    }
+
+    .demo-slide-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide-side-frame {
+      position: absolute;
+      top: 0; width: 100%; height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+      pointer-events: none;
+    }
+
+    #demo-prev-frame { right: 100%; }
+    #demo-next-frame { left: 100%; }
+
+    #demo-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      touch-action: pan-y;
+      user-select: none;
+      cursor: grab;
+    }
+
+    @keyframes demoSlideRight {
+      from { transform: translateX(40px); opacity: 0; }
+      to   { transform: translateX(0);   opacity: 1; }
+    }
+
+    @keyframes demoSlideLeft {
+      from { transform: translateX(-40px); opacity: 0; }
+      to   { transform: translateX(0);     opacity: 1; }
+    }
+
+    #demo-img.anim-next { animation: demoSlideRight 0.2s ease; }
+    #demo-img.anim-prev { animation: demoSlideLeft  0.2s ease; }
+
+    .demo-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+      background: #fff;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .demo-footer button {
+      background: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      color: inherit;
+      flex-shrink: 0;
+    }
+
+    .demo-footer button:hover:not(:disabled) {
+      background: #f0f0f0;
+      border-color: #999;
+    }
+
+    .demo-footer button:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    .demo-caption {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.1rem;
+    }
+
+    .demo-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .demo-counter {
+      font-size: 0.75rem;
+      color: #999;
+    }
+  </style>
+
+  <script>
+    (function () {
+      var slides  = [
+        { src: 'demo-pics/1.png', title: 'Image Upload' },
+        { src: 'demo-pics/2.png', title: 'Analysis Report' },
+        { src: 'demo-pics/3.png', title: 'Nearby Facilities' }
+      ];
+      var current = 0;
+
+      var img     = document.getElementById('demo-img');
+      var prev    = document.getElementById('demo-prev');
+      var next    = document.getElementById('demo-next');
+      var title   = document.getElementById('demo-title');
+      var counter = document.getElementById('demo-counter');
+
+      var lb        = document.getElementById('lightbox');
+      var lbImg     = document.getElementById('lightbox-img');
+      var lbClose   = document.getElementById('lightbox-close');
+      var lbPrev    = document.getElementById('lightbox-prev');
+      var lbNext    = document.getElementById('lightbox-next');
+      var prevFrame = document.getElementById('demo-prev-frame');
+      var nextFrame = document.getElementById('demo-next-frame');
+
+      function preload(i) {
+        if (i >= 0 && i < slides.length) { var p = new Image(); p.src = slides[i].src; }
+      }
+
+      function show(i, dir) {
+        img.classList.remove('anim-next', 'anim-prev');
+        void img.offsetWidth;
+        img.src = slides[i].src;
+        img.alt = slides[i].title;
+        if (dir) img.classList.add(dir === 1 ? 'anim-next' : 'anim-prev');
+        title.textContent   = slides[i].title;
+        counter.textContent = (i + 1) + ' / ' + slides.length;
+        prev.disabled  = i === 0;
+        next.disabled  = i === slides.length - 1;
+        lbPrev.disabled = i === 0;
+        lbNext.disabled = i === slides.length - 1;
+        if (lb.classList.contains('is-open')) lbImg.src = slides[i].src;
+        prevFrame.src = i > 0 ? slides[i - 1].src : '';
+        nextFrame.src = i < slides.length - 1 ? slides[i + 1].src : '';
+        preload(i + 1);
+        preload(i - 1);
+      }
+
+      prev.addEventListener('click',   function () { if (current > 0)               show(--current, -1); });
+      next.addEventListener('click',   function () { if (current < slides.length-1) show(++current,  1); });
+      lbPrev.addEventListener('click', function () { if (current > 0)               show(--current, -1); });
+      lbNext.addEventListener('click', function () { if (current < slides.length-1) show(++current,  1); });
+
+      function resetFrames() {
+        img.style.transform = '';
+        prevFrame.style.transform = '';
+        nextFrame.style.transform = '';
+      }
+      function snapFramesBack() {
+        var t = 'transform 0.25s ease';
+        img.style.transition = t; img.style.transform = 'translateX(0)';
+        prevFrame.style.transition = t; prevFrame.style.transform = 'translateX(0)';
+        nextFrame.style.transition = t; nextFrame.style.transform = 'translateX(0)';
+        setTimeout(function() {
+          img.style.transition = ''; img.style.transform = '';
+          prevFrame.style.transition = ''; prevFrame.style.transform = '';
+          nextFrame.style.transition = ''; nextFrame.style.transform = '';
+        }, 260);
+      }
+
+      var imgDrag = false, imgPX = 0, imgDX = 0;
+      img.addEventListener('dragstart', function(e) { e.preventDefault(); });
+      img.addEventListener('pointerdown', function(e) {
+        imgDrag = true; imgPX = e.clientX; imgDX = 0;
+        img.setPointerCapture(e.pointerId);
+        img.classList.remove('anim-next', 'anim-prev');
+        img.style.cursor = 'grabbing';
+      });
+      img.addEventListener('pointermove', function(e) {
+        if (!imgDrag) return;
+        imgDX = e.clientX - imgPX;
+        img.style.transform = 'translateX(' + imgDX + 'px)';
+        prevFrame.style.transform = 'translateX(' + imgDX + 'px)';
+        nextFrame.style.transform = 'translateX(' + imgDX + 'px)';
+      });
+      img.addEventListener('pointerup', function(e) {
+        if (!imgDrag) return;
+        imgDrag = false; img.style.cursor = '';
+        var dx = imgDX; resetFrames();
+        if (dx > 50 && current > 0) { show(--current, -1); }
+        else if (dx < -50 && current < slides.length - 1) { show(++current, 1); }
+        else if (Math.abs(dx) < 10) {
+          lbImg.src = slides[current].src;
+          lbPrev.disabled = current === 0;
+          lbNext.disabled = current === slides.length - 1;
+          lb.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        } else { snapFramesBack(); }
+      });
+      img.addEventListener('pointercancel', function() {
+        imgDrag = false; img.style.cursor = ''; snapFramesBack();
+      });
+
+      var lbDrag = false, lbPX = 0, lbDX = 0;
+      lbImg.addEventListener('dragstart', function(e) { e.preventDefault(); });
+      lbImg.addEventListener('pointerdown', function(e) {
+        lbDrag = true; lbPX = e.clientX; lbDX = 0;
+        lbImg.setPointerCapture(e.pointerId);
+        lbImg.style.cursor = 'grabbing';
+      });
+      lbImg.addEventListener('pointermove', function(e) {
+        if (!lbDrag) return;
+        lbDX = e.clientX - lbPX;
+        var halfW = lb.offsetWidth / 2 || 300;
+        lbImg.style.transform = 'translateX(' + lbDX + 'px)';
+        lbImg.style.opacity = String(Math.max(0.25, 1 - Math.abs(lbDX) / halfW));
+      });
+      function lbNavFade(newDir, updateFn) {
+        lbImg.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+        lbImg.style.opacity = '0';
+        lbImg.style.transform = 'translateX(' + (newDir > 0 ? 40 : -40) + 'px)';
+        setTimeout(function() {
+          lbImg.style.transition = 'none';
+          lbImg.style.transform = ''; lbImg.style.opacity = '0';
+          updateFn();
+          void lbImg.offsetWidth;
+          lbImg.style.transition = 'opacity 0.2s ease';
+          lbImg.style.opacity = '1';
+          setTimeout(function() { lbImg.style.transition = ''; lbImg.style.opacity = ''; }, 220);
+        }, 150);
+      }
+      lbImg.addEventListener('pointerup', function(e) {
+        if (!lbDrag) return;
+        lbDrag = false; lbImg.style.cursor = '';
+        var dx = lbDX;
+        if (dx > 50 && current > 0) {
+          lbNavFade(1, function() { show(--current, -1); });
+        } else if (dx < -50 && current < slides.length - 1) {
+          lbNavFade(-1, function() { show(++current, 1); });
+        } else {
+          lbImg.style.transition = 'opacity 0.2s ease, transform 0.25s ease';
+          lbImg.style.opacity = '1'; lbImg.style.transform = 'translateX(0)';
+          setTimeout(function() { lbImg.style.transition = ''; lbImg.style.opacity = ''; lbImg.style.transform = ''; }, 260);
+        }
+      });
+      lbImg.addEventListener('pointercancel', function() {
+        lbDrag = false; lbImg.style.cursor = '';
+        lbImg.style.transition = 'opacity 0.2s ease, transform 0.25s ease';
+        lbImg.style.opacity = '1'; lbImg.style.transform = 'translateX(0)';
+        setTimeout(function() { lbImg.style.transition = ''; lbImg.style.opacity = ''; lbImg.style.transform = ''; }, 260);
+      });
+
+      function close() { lb.classList.remove('is-open'); document.body.style.overflow = ''; }
+      lbClose.addEventListener('click', close);
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('is-open')) return;
+        if (e.key === 'Escape')      close();
+        if (e.key === 'ArrowLeft'  && current > 0)               show(--current, -1);
+        if (e.key === 'ArrowRight' && current < slides.length-1) show(++current,  1);
+      });
+
+      nextFrame.src = slides[1].src;
+      preload(1);
+    })();
+  </script>
 
   <footer class="footer">
     <div class="footer-inner container">
